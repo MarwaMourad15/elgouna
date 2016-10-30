@@ -1,0 +1,81 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/get-beach-reviews
+resource_url: http://asinteractive.net/elgouna/api/web/beaches/get-beach-reviews
+description: >
+    API to get All Items for Things to do with filteration.
+parameters:
+    - name : lastId
+      description :  for pagenation   start with 0
+      optional : NO
+      default :
+
+    - name : beachId
+      description :   beach id that we need to get reviews for
+      optional : no
+      default : No
+
+
+
+
+sample_url: http://asinteractive.net/elgouna/api/web/beaches/get-beach-reviews
+sample_request: |
+        {
+        	"beachId":22,
+        	"lastId":0
+        }
+
+sample_response: |
+
+  {
+    "reviews": [
+      {
+        "recordId": 1,
+        "id": 252,
+        "review": "hrrry",
+        "rating": "",
+        "date": "2016-05-10 13:36:58",
+        "user": {
+          "username": "",
+          "imgURL": ""
+        }
+      },
+      {
+        "recordId": 2,
+        "id": 292,
+        "review": "hjjjy",
+        "rating": 5,
+        "date": "2016-05-10 13:56:02",
+        "user": {
+          "username": "marwan sallam",
+          "imgURL": "http://40.114.149.31/elgouna-server/images/users/115.png"
+        }
+      },
+      {
+        "recordId": 3,
+        "id": 362,
+        "review": "hajj",
+        "rating": 2,
+        "date": "2016-05-11 12:12:51",
+        "user": {
+          "username": "",
+          "imgURL": ""
+        }
+      }
+    ]
+  }
+
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

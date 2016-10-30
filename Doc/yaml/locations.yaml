@@ -1,0 +1,45 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: GET
+resource: setting/locations
+resource_url: http://asinteractive.net/elgouna/api/web/setting/locations
+description: >
+    API to get All locations for dining OR Night life OR Things to do.
+parameters:
+
+
+sample_url: http://asinteractive.net/elgouna/api/web/setting/locations
+sample_request: |
+
+
+sample_response: |
+
+		{
+          "status": 1,
+          "data": [
+            {
+              "id": 1,
+              "title": "Abu Tig"
+            },
+            {
+              "id": 2,
+              "title": "Tamr Henna"
+            },
+            {
+              "id": 3,
+              "title": "El Balad"
+            },
+            {
+              "id": 4,
+              "title": "Moevenpick"
+            }
+          ]
+        }
+
+
+
+sample_error: |

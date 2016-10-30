@@ -1,0 +1,50 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: GET
+resource: beaches/category
+resource_url: http://asinteractive.net/elgouna/api/web/beaches/category
+description: >
+    API to get All Categories for things to do.
+parameters:
+
+
+sample_url: http://asinteractive.net/elgouna/api/web/beaches/category
+sample_request: |
+		GET
+
+sample_response: |
+
+		{
+          "status": 1,
+          "data": [
+            {
+              "id": 1,
+              "title": "Beaches and Pools",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 2,
+              "title": "Golf",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 3,
+              "title": "Kite Surfing",
+              "description": "",
+              "image": ""
+            }
+          ]
+        }
+
+
+
+sample_error: |
+
+
+

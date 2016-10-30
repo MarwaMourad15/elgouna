@@ -1,0 +1,9 @@
+<?php
+session_start();
+include("../db_conn.php");
+date_default_timezone_set('Africa/Cairo');
+$date=date("Y-m-d");
+$_SESSION['session_elgouna_mobileApp_username']='';
+$_SESSION['session_elgouna_mobileApp_id']='';
+header("location:index.php");
+?>

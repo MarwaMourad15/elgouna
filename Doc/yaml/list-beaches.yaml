@@ -1,0 +1,169 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/list-beaches
+resource_url: http://asinteractive.net/elgouna/api/web/beaches/list-beaches
+description: >
+    API to get All Items for Things to do with filteration.
+parameters:
+    - name : lastId
+      description :  for pagenation   start with 0
+      optional : No
+      default : 0
+
+    - name : keyword
+      description :   search in name
+      optional : Yes
+      default : No
+
+    - name : priceType
+      description :   0 low   1 medium   2 high
+      optional : Yes
+      default : No
+
+    - name : visaCheck
+      description :     0 not    1 yes
+      optional : Yes
+      default : No
+
+    - name : popularity
+      description :  0 low   1 medium   2 high
+      optional : Yes
+      default : No
+
+    - name : locationId
+      description :  refrence from API Location
+      optional : Yes
+      default : No
+
+    - name : categoryId
+      description :  reference from API category
+      optional : Yes
+      default : No
+
+    - name : placeType
+      description :   0 Beach front     1 marina front
+      optional : Yes
+      default : No
+
+    - name : wifiCheck
+      description :   0 not    1 yes
+      optional : Yes
+      default : No
+
+    - name : userId
+      description :   for registered user -- used for isLiked
+      optional : Yes
+      default : No
+
+
+
+sample_url: http://asinteractive.net/elgouna/api/web/beaches/list-beaches
+sample_request: |
+        {
+        	"lastId":0,
+        	"keyword":"u",
+        	"priceType":"0",
+        	"visaCheck":"",
+        	"popularity":"",
+        	"locationId":"",
+        	"categoryId":"",
+        	"placeType":"",
+        	"wifiCheck":"0",
+        	"userId":""
+        }
+
+sample_response: |
+
+  {
+    "beaches": [
+      {
+        "recordId": 1,
+        "beachId": 3,
+        "name": "Buzzha Beach",
+        "type": "",
+        "location": "North Mangroovy",
+        "longitude": "1",
+        "latitude": "1",
+        "reviewScore": "Excellent (4)",
+        "ratingStar": 1,
+        "offerExists": "",
+        "isLiked": "",
+        "descrip": "Only 15 minutes from downtown. Soak up the sun and watch kitesurfers. Activities include billiards, table football, beach volleyball and a kidsâ€™ playground, all free of charge.",
+        "offerTitle": "",
+        "offerDescription": "",
+        "isPoolAvailable": "",
+        "isGymAvailable": "",
+        "isWifiAvailable": "",
+        "isVisaPaymentAvailable": "",
+        "isDiningInAvailable": "",
+        "accomadtionType": "",
+        "elgounaVoice": "",
+        "email": "",
+        "phoneNumber": "+2 012 2661 0878 ",
+        "info": "",
+        "facebookLink": "",
+        "twitterLink": "",
+        "instagramLink": "",
+        "youtubeLink": "",
+        "category": "",
+        "priceType": "Low",
+        "popularity": "Low",
+        "locationType": "",
+        "placeType": "Beach Front",
+        "gallery": [
+          "25.jpg"
+        ]
+      },
+      {
+        "recordId": 2,
+        "beachId": 12,
+        "name": "Club 88",
+        "type": "",
+        "location": "Abu Tig Marina North",
+        "longitude": "",
+        "latitude": "",
+        "reviewScore": "",
+        "ratingStar": 1,
+        "offerExists": "",
+        "isLiked": "",
+        "descrip": "A sexy circular pool overlooking the super yacht marina. Have a fruity cocktail or order some lunch and eat by the sparkling pool.",
+        "offerTitle": "",
+        "offerDescription": "",
+        "isPoolAvailable": "",
+        "isGymAvailable": "",
+        "isWifiAvailable": "",
+        "isVisaPaymentAvailable": "",
+        "isDiningInAvailable": "",
+        "accomadtionType": "",
+        "elgounaVoice": "",
+        "email": "",
+        "phoneNumber": "+2 015 0739 3572",
+        "info": "",
+        "facebookLink": "",
+        "twitterLink": "",
+        "instagramLink": "",
+        "youtubeLink": "",
+        "category": "",
+        "priceType": "Low",
+        "popularity": "Low",
+        "locationType": "",
+        "placeType": "Beach Front",
+        "gallery": [
+          "72.jpg"
+        ]
+      },
+
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

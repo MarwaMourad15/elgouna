@@ -1,0 +1,7 @@
+CREATE TABLE `transportation` ( 
+`id` MEDIUMINT NOT NULL AUTO_INCREMENT , 
+`type` VARCHAR(50) NOT NULL , 
+`description` VARCHAR(1500) NOT NULL , 
+PRIMARY KEY (`id`)
+) 
+ENGINE = InnoDB;

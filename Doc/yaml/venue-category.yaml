@@ -1,0 +1,84 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: venue/category
+resource_url: http://asinteractive.net/elgouna/api/web/venue/category
+description: > 
+    API to get All Categories for dining OR Night life.
+parameters:
+    - name : type
+      description : >
+          // 0 dining    1 night life
+      optional : No
+
+sample_url: http://asinteractive.net/elgouna/api/web/venue/category
+sample_request: |
+		
+		{
+        	"type":1
+        }
+		
+sample_response: |  
+		
+		{
+          "status": 1,
+          "data": [
+            {
+              "id": 2,
+              "title": "Restaurant and Lounge",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 3,
+              "title": "Restaurant",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 4,
+              "title": "Cafe",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 5,
+              "title": "Bar",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 6,
+              "title": "Restaurant and Bar",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 7,
+              "title": "Bar and Lounge",
+              "description": "",
+              "image": ""
+            },
+            {
+              "id": 8,
+              "title": "Clubs",
+              "description": "",
+              "image": ""
+            }
+          ]
+        }
+
+
+
+sample_error: |
+		
+		{ 
+			"status": 0, 
+			"error_code": 400, 
+			"errors": "Invalid_Parameters" 
+		}
+

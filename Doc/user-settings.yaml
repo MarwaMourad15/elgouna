@@ -1,0 +1,17 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "setting/locations"
+    description : >
+       API to make the user upload photo to the server
+    file_name : "yaml/locations.yaml"
+
+
+api2 :
+    name : "setting/settings"
+    description : >
+       API to get the conent of the about page and other settings
+    file_name : "yaml/page-setting.yaml"

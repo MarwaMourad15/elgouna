@@ -1,0 +1,39 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: GET
+resource: setting/settings
+resource_url: http://asinteractive.net/elgouna/api/web/setting/settings
+description: >
+    API to get the conent of the about page and other settings
+parameters:
+
+
+sample_url: http://asinteractive.net/elgouna/api/web/setting/settings
+sample_request: |
+
+
+sample_response: |
+
+		{
+          "bookingURL": "http://www.hotels.elgouna.com/",
+          "facebookURL": "https://www.facebook.com/elgounaredsea",
+          "elgounaURL": "http://www.elgouna.com/",
+          "twitterURL": "https://twitter.com/ElGounaRedSea",
+          "youtubeURL": "https://www.youtube.com/user/ELGOUNAofficial",
+          "instagramURL": "https://www.instagram.com/elgounaredsea",
+          "snapchatURL": "https://www.snapchat.com/add/elgounaredsea",
+          "elgounaPhone": "16650",
+          "elgounaSMS": "01254856578",
+          "elgounaemail": "info@elgouna.com",
+          "paymobAPIKey": "GOUNA_0MBO-Y84Z7ZKI2SDFVK4",
+          "paymobSecretKey": "TITLB7N5TJJTIV0FQPU24HL65",
+          "paymobMerchantId": "138J8KRFLEFYIF5IKDU00BE",
+          "paymobSecureHash": "JMZZ3N9BQPZLO4U99WN3W5DPT",
+          "about": "<!DOCTYPE html>\r\n<!--\r\nTo change this license header, choose License Headers in Project Properties.\r\nTo change this template file, choose Tools | Templates\r\nand open the template in the editor.\r\n-->\r\n<style>\r\n.container {\r\n    width: 100%;\r\n}\r\nbody {\r\n    margin: 0;\r\n    font-family: sans-serif;\r\n    color: #135387;\r\n    text-align: justify;\r\n}\r\n.heading {\r\n\r\n}   \r\nh1, h2, h3 {\r\n    margin: 0;\r\n}\r\nh1, h2, h3, p {\r\n    margin: 0;\r\n    line-height: 25px;\r\n}\r\np {\r\n    margin: 0;\r\n    font-size: 14px;\r\n}\r\nh1 {\r\n    margin: 0;\r\n    padding: 15px;\r\n    font-size: 14px;\r\n}\r\nh2 {\r\n    font-size: 12px;\r\n}\r\nh3 {\r\n    font-size: 18px;\r\n}\r\nimg {\r\n    height: 1px;\r\n    width: 100%;\r\n}\r\nhr {\r\n\r\n}\r\n.para {\r\n    width: 88%;\r\n    padding: 0 15px;\r\n}\r\n.h10 {\r\n    height: 10px;\r\n}\r\n.h5 {\r\n    height: 5px;\r\n}\r\n.alter div {\r\n    padding: 5px 0;\r\n}\r\n.alter div:nth-child(odd) {\r\n    background: #e8e8e8;\r\n}\r\n.alter p, .alter h1, .tab15 {\r\n    display: inline;\r\n}\r\n.alter p {\r\n    font-style: italic;\r\n}\r\n.tab15 {\r\n    width: 15px;\r\n}\r\n</style>\r\n<html>\r\n    <head>\r\n        <title>About Us</title>\r\n        <meta charset=\"UTF-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    </head>\r\n    <body>\r\n        <div class=\"container\">\r\n            <div class=\"para\">\r\n                <p>\r\n                    El Gouna is the premier Red Sea holiday destination, a self-sufficient two boasting 17 hotels and offering a myriad of activities and entertainment. \r\n                    <br/>\r\n                    It's truly one of a kind.\r\n                </p>\r\n            </div>\r\n            <div class=\"h10\"></div>\r\n            <div class=\"h10\"></div>\r\n            <div class=\"para\">\r\n                <h3>\r\n                    Location\r\n                </h3>\r\n                <div class=\"h5\"></div>\r\n                <p>\r\n                    Conveniently located 25 kilometers north of Hurghada, El Gouna is only a four-hour flight from Europe's major capitals.\r\n                    <br/>\r\n                    The town is easily accessed from Europe via the nearby Hurghada International Airport and boosts a superb infrastructure and excellent services as well as natural beaches and year-round sunshine.\r\n                    <br/>\r\n                    The town's location offer good access to many of Egypt's natural wonders, historical sites, and archaeological treasures. The ancient temples of Luxor and Aswan are only a ride away. Day and overnight trips to Luxor, Aswan, Cairo, and Sinai are also easily arranged from El Gouna.\r\n                </p>\r\n            </div>\r\n            <div class=\"h10\"></div>\r\n            <div class=\"h10\"></div>\r\n            <div class=\"para\">\r\n                <h3>\r\n                    Environment\r\n                </h3>\r\n                <div class=\"h5\"></div>\r\n                <p>\r\n                    El Gouna has been officially recognized as Egypt's most environmentally friendly holiday destination. El Gouna management has worked hard in cooperation with local hotels, businesses, residents, and visitors to maintain, protect, and preserve its unique environment. The town’s environmental programs and grassroots environmental organization paved the way for several awards, including the Green Globe and Travelife, and led to El Gouna’s selection as the pilot location for the Green Star Hotel Initiative. In recognition of the success of the initiative, in 2014, El Gouna was granted the Global Human Settlements Award for being a Global Green Town. This award is sponsored by the United Nations Environment Program and is given to towns displaying substantial measures and efforts in progress within the field of environmental sustainability.\r\n                </p>\r\n            </div>\r\n            <div class=\"h10\"></div>\r\n            <div class=\"h10\"></div>\r\n            <div class=\"para\">\r\n                <h3>\r\n                    About This App\r\n                </h3>\r\n                <div class=\"h5\"></div>\r\n                <p>\r\n                    This app is a comprehensive, pocket-sized mobile guide to all that is El Gouna, from hotel bookings to fun activities and a beautiful photo gallery. Whether you are a visitor or a resident in El Gouna, you are part of our community, and we invite you to contribute and participate in this app with your reviews, pictures and rankings. The beauty of El Gouna isthat it is multi-faceted, and we hope to bring all of its unique layers right to your fingertips. \r\n                    <br/>\r\n                    They are sailing with two stops at our secret reefs, where you can swim, snorkel or just relax.\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </body>\r\n</html>"
+        }
+
+sample_error: |

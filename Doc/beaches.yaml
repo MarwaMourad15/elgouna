@@ -1,0 +1,33 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "beaches/category"
+    description : >
+        API to get All Categories for Things to do.
+    file_name : "yaml/beaches-category.yaml"
+
+api2 :
+    name : "beaches/list-beaches"
+    description : >
+        API to get All Items for Things to do with filteration.
+    file_name : "yaml/list-beaches.yaml"
+
+api3 :
+    name : "beaches/get-beach-reviews"
+    description : >
+        API to get All reviews for Things to do.
+    file_name : "yaml/get-beach-reviews.yaml"
+
+api4 :
+    name : "beaches/like-beach"
+    description : >
+      API to save user like on specific item
+    file_name : "yaml/like-beach.yaml"
+api5 :
+    name : "beaches/submit-beach-review"
+    description : >
+        API to save user review on specific item
+    file_name : "yaml/submit-beach-review.yaml"

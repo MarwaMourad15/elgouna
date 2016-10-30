@@ -1,0 +1,1 @@
+ALTER TABLE `orders` ADD `table` VARCHAR(30) NOT NULL, ADD `paymob_ref` VARCHAR(100) NOT NULL

@@ -1,0 +1,47 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/like-beach
+resource_url: http://asinteractive.net/elgouna/api/web/beaches/like-beach
+description: >
+
+parameters:
+    - name : userId
+      description :  for registered user
+      optional : NO
+      default :
+
+    - name : beachId
+      description :   beach id to like
+      optional : no
+      default : No
+
+
+
+
+sample_url: http://asinteractive.net/elgouna/api/web/beaches/like-beach
+sample_request: |
+        {
+        	"beachId":22,
+        	"userId":115
+        }
+
+sample_response: |
+
+  {
+      "status": 1
+  }
+
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

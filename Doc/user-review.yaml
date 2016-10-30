@@ -1,0 +1,10 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "review/patient-review"
+    description : >
+       API to make the user rate the finished visit 
+    file_name : "yaml/patient-review.yaml"

@@ -1,0 +1,32 @@
+body
+{
+    padding-top :90px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+.navbar-brand, .navbar-brand:hover, .navbar-brand:focus
+{
+    color: #1b6997;
+}
+.nav>li>a:hover, .nav>li>a:focus
+{
+    background-color: transparent;
+}
+.breadcrumb
+{
+    background-color: transparent;
+}
+.breadcrumb a:hover, a:focus
+{
+    color: #062339;
+    text-decoration: none;
+}
+td a
+{
+    color: #1b6997;
+}
+td a:hover, td a:focus
+{
+    color: #062339;
+    text-decoration: none;
+}
