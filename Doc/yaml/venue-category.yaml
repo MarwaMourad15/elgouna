@@ -6,7 +6,7 @@ response_format: JSON
 authentication: None
 method: Post
 resource: venue/category
-resource_url: http://asinteractive.net/elgouna/api/web/venue/category
+resource_url: http://elgounaapp.com/elgouna/api/web/venue/category
 description: > 
     API to get All Categories for dining OR Night life.
 parameters:
@@ -15,7 +15,7 @@ parameters:
           // 0 dining    1 night life
       optional : No
 
-sample_url: http://asinteractive.net/elgouna/api/web/venue/category
+sample_url: http://elgounaapp.com/elgouna/api/web/venue/category
 sample_request: |
 		
 		{

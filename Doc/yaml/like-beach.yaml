@@ -6,7 +6,7 @@ response_format: JSON
 authentication: None
 method: Post
 resource: beaches/like-beach
-resource_url: http://asinteractive.net/elgouna/api/web/beaches/like-beach
+resource_url: http://elgounaapp.com/elgouna/api/web/beaches/like-beach
 description: >
 
 parameters:
@@ -23,7 +23,7 @@ parameters:
 
 
 
-sample_url: http://asinteractive.net/elgouna/api/web/beaches/like-beach
+sample_url: http://elgounaapp.com/elgouna/api/web/beaches/like-beach
 sample_request: |
         {
         	"beachId":22,

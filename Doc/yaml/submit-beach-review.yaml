@@ -6,7 +6,7 @@ response_format: JSON
 authentication: None
 method: Post
 resource: beaches/submit-beach-review
-resource_url: http://asinteractive.net/elgouna/api/web/beaches/submit-beach-review
+resource_url: http://elgounaapp.com/elgouna/api/web/beaches/submit-beach-review
 description: >
   API to save user review on specific item
 parameters:
@@ -33,7 +33,7 @@ parameters:
 
 
 
-sample_url: http://asinteractive.net/elgouna/api/web/beaches/submit-beach-review
+sample_url: http://elgounaapp.com/elgouna/api/web/beaches/submit-beach-review
 sample_request: |
         {
         	"beachId":22,

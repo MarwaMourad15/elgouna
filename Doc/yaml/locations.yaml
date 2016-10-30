@@ -6,13 +6,13 @@ response_format: JSON
 authentication: None
 method: GET
 resource: setting/locations
-resource_url: http://asinteractive.net/elgouna/api/web/setting/locations
+resource_url: http://elgounaapp.com/elgouna/api/web/setting/locations
 description: >
     API to get All locations for dining OR Night life OR Things to do.
 parameters:
 
 
-sample_url: http://asinteractive.net/elgouna/api/web/setting/locations
+sample_url: http://elgounaapp.com/elgouna/api/web/setting/locations
 sample_request: |
 
 

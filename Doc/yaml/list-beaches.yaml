@@ -6,7 +6,7 @@ response_format: JSON
 authentication: None
 method: Post
 resource: beaches/list-beaches
-resource_url: http://asinteractive.net/elgouna/api/web/beaches/list-beaches
+resource_url: http://elgounaapp.com/elgouna/api/web/beaches/list-beaches
 description: >
     API to get All Items for Things to do with filteration.
 parameters:
@@ -62,7 +62,7 @@ parameters:
 
 
 
-sample_url: http://asinteractive.net/elgouna/api/web/beaches/list-beaches
+sample_url: http://elgounaapp.com/elgouna/api/web/beaches/list-beaches
 sample_request: |
         {
         	"lastId":0,

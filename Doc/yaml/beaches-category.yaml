@@ -6,13 +6,13 @@ response_format: JSON
 authentication: None
 method: GET
 resource: beaches/category
-resource_url: http://asinteractive.net/elgouna/api/web/beaches/category
+resource_url: http://elgounaapp.com/elgouna/api/web/beaches/category
 description: >
     API to get All Categories for things to do.
 parameters:
 
 
-sample_url: http://asinteractive.net/elgouna/api/web/beaches/category
+sample_url: http://elgounaapp.com/elgouna/api/web/beaches/category
 sample_request: |
 		GET
 

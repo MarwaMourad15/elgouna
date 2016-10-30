@@ -6,13 +6,13 @@ response_format: JSON
 authentication: None
 method: GET
 resource: setting/settings
-resource_url: http://asinteractive.net/elgouna/api/web/setting/settings
+resource_url: http://elgounaapp.com/elgouna/api/web/setting/settings
 description: >
     API to get the conent of the about page and other settings
 parameters:
 
 
-sample_url: http://asinteractive.net/elgouna/api/web/setting/settings
+sample_url: http://elgounaapp.com/elgouna/api/web/setting/settings
 sample_request: |
 
 
