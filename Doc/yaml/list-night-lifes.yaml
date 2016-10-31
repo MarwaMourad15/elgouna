@@ -5,16 +5,11 @@ rate_limited: Yes
 response_format: JSON
 authentication: None
 method: Post
-resource: venue/list-venues
-resource_url: http://elgounaapp.com/elgouna/api/web/venue/list-venues
+resource: night-life/list-night-lifes
+resource_url: http://elgounaapp.com/elgouna/api/web/night-life/list-night-lifes
 description: >
-    API to get All Items for dining OR Night life with filteration.
+    API to get All Items for Night life with filteration.
 parameters:
-    - name : categoryType
-      description :  0 dining    1 night life
-      optional : No
-      default : No
-
     - name : keyword
       description :   search in name
       optional : Yes
@@ -57,7 +52,7 @@ parameters:
 
 
 
-sample_url: http://elgounaapp.com/elgouna/api/web/venue/list-venues
+sample_url: http://elgounaapp.com/elgouna/api/web/night-life/list-night-lifes
 sample_request: |
         {
         	"categoryType":0,

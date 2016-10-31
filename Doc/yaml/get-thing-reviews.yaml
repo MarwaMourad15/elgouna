@@ -5,8 +5,8 @@ rate_limited: Yes
 response_format: JSON
 authentication: None
 method: Post
-resource: beaches/get-beach-reviews
-resource_url: http://asinteractive.net/elgouna/api/web/beaches/get-beach-reviews
+resource: things/get-thing-reviews
+resource_url: http://asinteractive.net/elgouna/api/web/things/get-thing-reviews
 description: >
     API to get All Items for Things to do with filteration.
 parameters:
@@ -23,7 +23,7 @@ parameters:
 
 
 
-sample_url: http://asinteractive.net/elgouna/api/web/beaches/get-beach-reviews
+sample_url: http://asinteractive.net/elgouna/api/web/things/get-thing-reviews
 sample_request: |
         {
         	"beachId":22,

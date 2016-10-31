@@ -1,0 +1,124 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: dining/list-dinings
+resource_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
+description: >
+    API to get All Items for dining with filteration.
+parameters:
+    - name : keyword
+      description :   search in name
+      optional : Yes
+      default : No
+
+    - name : priceType
+      description :   0 low   1 medium   2 high
+      optional : Yes
+      default : No
+
+    - name : visaCheck
+      description :     0 not    1 yes
+      optional : Yes
+      default : No
+
+    - name : popularity
+      description :  0 low   1 medium   2 high
+      optional : Yes
+      default : No
+
+    - name : locationId
+      description :  refrence from API Location
+      optional : Yes
+      default : No
+
+    - name : categoryId
+      description :  reference from API category
+      optional : Yes
+      default : No
+
+    - name : placeType
+      description :   0 Beach front     1 marina front
+      optional : Yes
+      default : No
+
+    - name : wifiCheck
+      description :   0 not    1 yes
+      optional : Yes
+      default : No
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
+sample_request: |
+        {
+        	"categoryType":0,
+        	"keyword":"chu",
+        	"priceType":"0",
+        	"visaCheck":"",
+        	"popularity":"",
+        	"locationId":"",
+        	"categoryId":"",
+        	"placeType":"",
+        	"wifiCheck":"0"
+        }
+
+sample_response: |
+
+  {
+    "venues": [
+      {
+        "id": 50,
+        "name": "Chuchichäschtli Swiss House ",
+        "type": "Restaurant",
+        "location": "El Balad",
+        "longitude": "33.675965",
+        "latitude": "27.396560",
+        "review": "",
+        "rating": "",
+        "description": "ext 34105 / Swiss / El Balad",
+        "offerCheck": "",
+        "offerTitle": "0",
+        "offerDescription": "0",
+        "wifiCheck": "",
+        "visaCheck": "",
+        "diningCheck": "",
+        "elgounaVoice": "",
+        "email": "",
+        "phoneNumber": "",
+        "info": "",
+        "facebookLink": "",
+        "twitterLink": "",
+        "instagramLink": "",
+        "youtubeLink": "",
+        "order": 18,
+        "merchantId": "",
+        "secureHash": "",
+        "category": "",
+        "priceType": "Low",
+        "popularity": "Low",
+        "locationType": "",
+        "placeType": "Beach Front",
+        "images": [
+          "104_18--swiss-restaurant2.jpg",
+          "105_18--swiss-rest.jpg",
+          "269_18--chuchichaschtli.jpg",
+          "270_18--swiss-restaurant.jpg",
+          "271_18--swiss.jpg",
+          "272_18--swiss1.jpg"
+        ]
+      }
+    ]
+  }
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

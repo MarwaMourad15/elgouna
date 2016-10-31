@@ -20,7 +20,7 @@ use yii\filters\VerbFilter;
  * Class BeachesController
  * @package api\controllers
  */
-class BeachesController extends ApiController
+class ThingsController extends ApiController
 {
 
     public function behaviors()
@@ -30,10 +30,10 @@ class BeachesController extends ApiController
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'category' => ['get'],
-                    'list-beaches' => ['post'],
-                    'get-beach-reviews' => ['post'],
-                    'like-beach' => ['post'],
-                    'submit-beach-review' => ['post'],
+                    'list-things' => ['post'],
+                    'get-thing-reviews' => ['post'],
+                    'like-thing' => ['post'],
+                    'submit-thing-review' => ['post'],
                 ],
 
             ]
@@ -59,7 +59,7 @@ class BeachesController extends ApiController
     }
 
 
-    public function actionListBeaches()
+    public function actionListThings()
     {
         $limit = "20";
         $start = "0";
@@ -196,7 +196,7 @@ class BeachesController extends ApiController
     }
 
 
-    public function actionGetBeachReviews()
+    public function actionGetThingReviews()
     {
         $limit = "20";
         $start = "0";
@@ -253,7 +253,7 @@ class BeachesController extends ApiController
     }
 
 
-    public function actionLikeBeach()
+    public function actionLikeThing()
     {
         $params = $this->parseRequest();
         if(isset($params['userId'])  &&  isset($params['beachId']) ) {
@@ -281,7 +281,7 @@ class BeachesController extends ApiController
     }
 
 
-    public function actionSubmitBeachReview()
+    public function actionSubmitThingReview()
     {
         $params = $this->parseRequest();
         if(isset($params['userId'])  &&  isset($params['beachId'])

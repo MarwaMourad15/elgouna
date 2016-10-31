@@ -5,14 +5,14 @@ rate_limited: Yes
 response_format: JSON
 authentication: None
 method: GET
-resource: beaches/category
-resource_url: http://elgounaapp.com/elgouna/api/web/beaches/category
+resource: things/category
+resource_url: http://elgounaapp.com/elgouna/api/web/things/category
 description: >
     API to get All Categories for things to do.
 parameters:
 
 
-sample_url: http://elgounaapp.com/elgouna/api/web/beaches/category
+sample_url: http://elgounaapp.com/elgouna/api/web/things/category
 sample_request: |
 		GET
 
