@@ -11,8 +11,9 @@ if(!file_exists("settings.ini")) {
         exit ;
     }
 
-    $venues_yaml = "venues.yaml";
-    $beaches_yaml = "beaches.yaml";
+    $dinings_yaml = "dinings.yaml";
+    $night_lifes_yaml = "night-lifes.yaml";
+    $things_yaml = "things.yaml";
 	$review_yaml = "user-review.yaml";
 	$setting_yaml = "user-settings.yaml";
 
@@ -26,8 +27,9 @@ if(!file_exists("settings.ini")) {
     $brand_name = array_key_exists("brand.name",$settings) ? $settings["brand.name"] : ""  ;
     $api_version = array_key_exists("api.version",$settings) ? $settings["api.version"] : "v1.0"  ;
     $detail_url = "detail.php?token=" ;
-    $venues = Spyc::YAMLLoad($venues_yaml);
-    $beaches = Spyc::YAMLLoad($beaches_yaml);
+    $dinings = Spyc::YAMLLoad($dinings_yaml);
+    $night_lifes = Spyc::YAMLLoad($night_lifes_yaml);
+    $things = Spyc::YAMLLoad($things_yaml);
 	$review = Spyc::YAMLLoad($review_yaml);
 	$setting = Spyc::YAMLLoad($setting_yaml);
 ?>
@@ -112,7 +114,7 @@ if(!file_exists("settings.ini")) {
                 </hr>
 
 
-                <h3>Dining and Night life</h3>
+                <h3>Dining</h3>
 				<table class="table table-hover">
 					<thead>
 					<tr>
@@ -123,7 +125,34 @@ if(!file_exists("settings.ini")) {
 					</thead>
 
 					<tbody>
-					<?php foreach($venues as $api ) {
+					<?php foreach($dinings as $api ) {
+						$token = "#" ;
+						if(array_key_exists("file_name",$api)){ $token = base64_encode($api["file_name"]); }
+						$api_url = $detail_url.$token ; ?>
+						<tr>
+							<td><a href="<?php echo $api_url?>"><b><?php echo $api["name"] ?> </b></a></td>
+							<td><?php echo $api["description"] ?> </td>
+						</tr>
+
+					<?php } ?>
+					</tbody>
+
+				</table>
+<br>
+</hr>
+
+                <h3>Night life</h3>
+				<table class="table table-hover">
+					<thead>
+					<tr>
+						<th>Resource</th>
+						<th>Description</th>
+					</tr>
+
+					</thead>
+
+					<tbody>
+					<?php foreach($night_lifes as $api ) {
 						$token = "#" ;
 						if(array_key_exists("file_name",$api)){ $token = base64_encode($api["file_name"]); }
 						$api_url = $detail_url.$token ; ?>
@@ -149,7 +178,7 @@ if(!file_exists("settings.ini")) {
                     </thead>
 
                     <tbody>
-                    <?php foreach($beaches as $api ) {
+                    <?php foreach($things as $api ) {
                         $token = "#" ;
                         if(array_key_exists("file_name",$api)){ $token = base64_encode($api["file_name"]); }
                         $api_url = $detail_url.$token ; ?>

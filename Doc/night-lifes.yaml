@@ -1,0 +1,16 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "night-life/category"
+    description : >
+        API to get All Categories for Night life.
+    file_name : "yaml/night-life-category.yaml"
+
+api2 :
+    name : "night-life/list-night-lifes"
+    description : >
+        API to get All Items for Night life with filteration.
+    file_name : "yaml/list-night-lifes.yaml"

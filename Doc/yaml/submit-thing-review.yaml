@@ -5,8 +5,8 @@ rate_limited: Yes
 response_format: JSON
 authentication: None
 method: Post
-resource: beaches/submit-beach-review
-resource_url: http://elgounaapp.com/elgouna/api/web/beaches/submit-beach-review
+resource: things/submit-thing-review
+resource_url: http://elgounaapp.com/elgouna/api/web/things/submit-thing-review
 description: >
   API to save user review on specific item
 parameters:
@@ -33,7 +33,7 @@ parameters:
 
 
 
-sample_url: http://elgounaapp.com/elgouna/api/web/beaches/submit-beach-review
+sample_url: http://elgounaapp.com/elgouna/api/web/things/submit-thing-review
 sample_request: |
         {
         	"beachId":22,

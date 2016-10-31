@@ -4,23 +4,17 @@ version: v1.0
 rate_limited: Yes
 response_format: JSON
 authentication: None
-method: Post
-resource: venue/category
-resource_url: http://elgounaapp.com/elgouna/api/web/venue/category
+method: GET
+resource: dining/category
+resource_url: http://elgounaapp.com/elgouna/api/web/dining/category
 description: > 
-    API to get All Categories for dining OR Night life.
+    API to get All Categories for dining.
 parameters:
-    - name : type
-      description : >
-          // 0 dining    1 night life
-      optional : No
 
-sample_url: http://elgounaapp.com/elgouna/api/web/venue/category
+
+sample_url: http://elgounaapp.com/elgouna/api/web/dining/category
 sample_request: |
-		
-		{
-        	"type":1
-        }
+    GET
 		
 sample_response: |  
 		
@@ -76,9 +70,3 @@ sample_response: |
 
 sample_error: |
 		
-		{ 
-			"status": 0, 
-			"error_code": 400, 
-			"errors": "Invalid_Parameters" 
-		}
-

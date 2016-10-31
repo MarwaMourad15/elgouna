@@ -5,8 +5,8 @@ rate_limited: Yes
 response_format: JSON
 authentication: None
 method: Post
-resource: beaches/like-beach
-resource_url: http://elgounaapp.com/elgouna/api/web/beaches/like-beach
+resource: things/like-thing
+resource_url: http://elgounaapp.com/elgouna/api/web/things/like-thing
 description: >
 
 parameters:
@@ -23,7 +23,7 @@ parameters:
 
 
 
-sample_url: http://elgounaapp.com/elgouna/api/web/beaches/like-beach
+sample_url: http://elgounaapp.com/elgouna/api/web/things/like-thing
 sample_request: |
         {
         	"beachId":22,

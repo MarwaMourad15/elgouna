@@ -5,8 +5,8 @@ rate_limited: Yes
 response_format: JSON
 authentication: None
 method: Post
-resource: beaches/list-beaches
-resource_url: http://elgounaapp.com/elgouna/api/web/beaches/list-beaches
+resource: things/list-things
+resource_url: http://elgounaapp.com/elgouna/api/web/things/list-things
 description: >
     API to get All Items for Things to do with filteration.
 parameters:
@@ -62,7 +62,7 @@ parameters:
 
 
 
-sample_url: http://elgounaapp.com/elgouna/api/web/beaches/list-beaches
+sample_url: http://elgounaapp.com/elgouna/api/web/things/list-things
 sample_request: |
         {
         	"lastId":0,

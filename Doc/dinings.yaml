@@ -1,0 +1,16 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "dining/category"
+    description : >
+        API to get All Categories for dining.
+    file_name : "yaml/dining-category.yaml"
+
+api2 :
+    name : "dining/list-dinings"
+    description : >
+        API to get All Items for dining with filteration.
+    file_name : "yaml/list-dinings.yaml"
