@@ -15,7 +15,7 @@ use Yii;
 use yii\filters\VerbFilter;
 
 /**
- * Class VenueController
+ * Class HotelController
  *
  * @package api\controllers
  */
@@ -67,7 +67,6 @@ class HotelController extends ApiController {
 				if ($hotel->pid != 0) {
 					$reviewsData = file_get_contents ( 'http://connect.reviewpro.com/v1/lodging/review/published?pid=' . $row ['pid'] . '&api_key=3xr4g6us6xmf5xq6abz84kbh5u3b9vght2xa29pd&sig=b396f6a3bb4e98c9ebe1e56e6518afa40700344456937ea1d21d6c142507ec3e' );
 					$reviewsData = json_decode ( $reviewsData );
-					// print_r($reviewsData);
 					$rr = 0;
 					foreach ( $reviewsData->productReviews as $s => $x ) {
 						foreach ( $x->reviews as $n => $m ) {
