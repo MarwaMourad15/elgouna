@@ -46,9 +46,6 @@ class HotelController extends ApiController {
 								'hotel-services' => [ 
 										'get' 
 								],
-								'services' => [ 
-										'get' 
-								] 
 						] 
 				] 
 		];
@@ -300,22 +297,6 @@ class HotelController extends ApiController {
 			];
 		}
 		$this->sendSuccessResponse ( 1, 200, $all );
-	}
-	public function actionServices() {
-		$servs = [ ];
-		$services = ServicesHotel::find ()->orderBy ( [ 
-				'ord' => SORT_ASC 
-		] )->all ();
-		foreach ( $services as $serv ) {
-			$response = [ 
-					'id' => intval ( $serv->id ),
-					'title' => $this->stringVal ( $serv->title ),
-					'description' => $this->stringVal ( $serv->description ),
-					'image' => $this->stringVal ( $serv->image ) 
-			];
-			$servs [] = $response;
-		}
-		$this->sendSuccessResponse ( 1, 200, $servs );
 	}
 	public function actionListHotels() {
 		$params = $this->parseRequest ();
