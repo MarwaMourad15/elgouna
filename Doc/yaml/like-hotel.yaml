@@ -1,0 +1,47 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: hotel/like-hotel
+resource_url: http://elgounaapp.com/elgouna/api/web/hotel/like-hotel
+description: >
+
+parameters:
+    - name : userId
+      description :  for registered user
+      optional : NO
+      default :
+
+    - name : hotelId
+      description :   hotel id to like
+      optional : no
+      default : No
+
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/hotel/like-hotel
+sample_request: |
+        {
+        	"hotelId":22,
+        	"userId":115
+        }
+
+sample_response: |
+
+  {
+      "status": 1
+  }
+
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

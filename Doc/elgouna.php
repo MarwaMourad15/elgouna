@@ -10,7 +10,8 @@ if(!file_exists("settings.ini")) {
         printf("{yaml.index} key is not defined in settings. Aborting");
         exit ;
     }
-
+	
+    $hotel_yaml = "hotel.yaml";
     $dinings_yaml = "dinings.yaml";
     $night_lifes_yaml = "night-lifes.yaml";
     $things_yaml = "things.yaml";
@@ -27,6 +28,7 @@ if(!file_exists("settings.ini")) {
     $brand_name = array_key_exists("brand.name",$settings) ? $settings["brand.name"] : ""  ;
     $api_version = array_key_exists("api.version",$settings) ? $settings["api.version"] : "v1.0"  ;
     $detail_url = "detail.php?token=" ;
+    $hotel = Spyc::YAMLLoad($hotel_yaml);
     $dinings = Spyc::YAMLLoad($dinings_yaml);
     $night_lifes = Spyc::YAMLLoad($night_lifes_yaml);
     $things = Spyc::YAMLLoad($things_yaml);
@@ -85,7 +87,32 @@ if(!file_exists("settings.ini")) {
 		<div class="row">
 			<div class="col-lg-1">&nbsp;</div>
 			<div class="col-lg-8">
+				<h3>Hotel</h3>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Description</th>
+                    </tr>
 
+                    </thead>
+
+                    <tbody>
+                    <?php foreach($hotel as $api ) {
+						$token = "#" ;
+						if(array_key_exists("file_name",$api)){ $token = base64_encode($api["file_name"]); }
+						$api_url = $detail_url.$token ; ?>
+                    <tr>
+                        <td><a href="<?php echo $api_url?>"><b><?php echo $api["name"] ?> </b></a></td>
+                        <td><?php echo $api["description"] ?> </td>
+                    </tr>
+
+                    <?php } ?>
+                    </tbody>
+
+                </table>
+                <br>
+                </hr>
                 <h3>Setting</h3>
                 <table class="table table-hover">
                     <thead>

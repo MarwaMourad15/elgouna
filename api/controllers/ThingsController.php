@@ -2,15 +2,12 @@
 
 namespace api\controllers;
 
-
 use backend\models\BeachCategory;
 use backend\models\Beaches;
 use backend\models\BeachesImg;
 use backend\models\BeachReview;
 use backend\models\Location;
 use backend\models\RateRange;
-
-
 use backend\models\UserBeachLike;
 use backend\models\Users;
 use Yii;
@@ -18,8 +15,10 @@ use yii\filters\VerbFilter;
 
 /**
  * Class BeachesController
+ * 
  * @package api\controllers
  */
+
 class ThingsController extends ApiController
 {
 
@@ -349,7 +348,5 @@ class ThingsController extends ApiController
             $this->sendFailedResponse(0,402,'Invalid Parameters Missing ID');
         }
     }
-
-
 
 }

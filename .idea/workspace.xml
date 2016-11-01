@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fca5cb76-1758-4ae9-8642-4885c9d2f174" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/yaml/get-thing-details.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/yaml/hotel-filter.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/yaml/hotel-reviews.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/yaml/hotel-services.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/hotel.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/yaml/like-hotel.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/yaml/list-hotels.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Doc/yaml/submit-hotel-review.yaml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/kartik-v/bootstrap-fileinput" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/elgouna-server_old/api/hotel/getHotelDetails.php" afterPath="$PROJECT_DIR$/elgouna-server_old/api/done/getHotelDetails.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/elgouna-server_old/api/hotel/hotelFilter.php" afterPath="$PROJECT_DIR$/elgouna-server_old/api/done/hotelFilter.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/elgouna-server_old/api/hotel/likeHotel.php" afterPath="$PROJECT_DIR$/elgouna-server_old/api/done/likeHotel.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/elgouna-server_old/api/hotel/submitHotelReview.php" afterPath="$PROJECT_DIR$/elgouna-server_old/api/done/submitHotelReview.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/ApiController.php" afterPath="$PROJECT_DIR$/api/controllers/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/controllers/BeachesController.php" afterPath="$PROJECT_DIR$/backend/controllers/BeachesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/models/BeachesImg.php" afterPath="$PROJECT_DIR$/backend/models/BeachesImg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/DiningController.php" afterPath="$PROJECT_DIR$/api/controllers/DiningController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/NightLifeController.php" afterPath="$PROJECT_DIR$/api/controllers/NightLifeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/HotelController.php" afterPath="$PROJECT_DIR$/api/controllers/HotelController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/ThingsController.php" afterPath="$PROJECT_DIR$/api/controllers/ThingsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/models/VenuesImg.php" afterPath="$PROJECT_DIR$/backend/models/VenuesImg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Doc/yaml/list-things.yaml" afterPath="$PROJECT_DIR$/Doc/yaml/list-things.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Doc/things.yaml" afterPath="$PROJECT_DIR$/Doc/things.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Doc/elgouna.php" afterPath="$PROJECT_DIR$/Doc/elgouna.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="yii2-adminlte.iws" />
@@ -37,17 +43,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ThingsController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ThingsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/controllers/ThingsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.416667" vertical-offset="515" max-vertical-offset="3510">
-              <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.7794118" vertical-offset="138" max-vertical-offset="750">
+              <caret line="349" column="5" selection-start-line="349" selection-start-column="5" selection-end-line="349" selection-end-column="5" />
               <folding>
-                <element signature="e#36#69#0#PHP" expanded="true" />
-                <element signature="e#947#1527#0#PHP" expanded="false" />
-                <element signature="e#4916#6715#0#PHP" expanded="false" />
-                <element signature="e#6722#7530#0#PHP" expanded="false" />
-                <element signature="e#7537#8666#0#PHP" expanded="false" />
+                <element signature="e#35#68#0#PHP" expanded="true" />
+                <element signature="e#437#943#0#PHP" expanded="false" />
+                <element signature="e#949#1529#0#PHP" expanded="false" />
+                <element signature="e#1536#4911#0#PHP" expanded="false" />
+                <element signature="e#4918#6717#0#PHP" expanded="false" />
+                <element signature="e#6724#7532#0#PHP" expanded="false" />
+                <element signature="e#7539#8668#0#PHP" expanded="false" />
+                <element signature="e#8675#12415#0#PHP" expanded="false" />
+                <element signature="e#8771#12409#0#PHP" expanded="false" />
+                <element signature="e#12316#12409#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -65,10 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5147059" vertical-offset="225" max-vertical-offset="11415">
+            <state vertical-scroll-proportion="-11.25" vertical-offset="270" max-vertical-offset="11400">
               <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
               <folding />
             </state>
@@ -142,8 +153,8 @@
         <option value="$PROJECT_DIR$/backend/controllers/BeachesController.php" />
         <option value="$PROJECT_DIR$/backend/models/VenuesImg.php" />
         <option value="$PROJECT_DIR$/api/controllers/DiningController.php" />
-        <option value="$PROJECT_DIR$/api/controllers/ThingsController.php" />
         <option value="$PROJECT_DIR$/api/controllers/ApiController.php" />
+        <option value="$PROJECT_DIR$/api/controllers/ThingsController.php" />
       </list>
     </option>
   </component>
@@ -851,20 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/controllers/ThingsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.416667" vertical-offset="515" max-vertical-offset="3510">
-          <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
-          <folding>
-            <element signature="e#36#69#0#PHP" expanded="true" />
-            <element signature="e#947#1527#0#PHP" expanded="false" />
-            <element signature="e#4916#6715#0#PHP" expanded="false" />
-            <element signature="e#6722#7530#0#PHP" expanded="false" />
-            <element signature="e#7537#8666#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/DiningController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.166667" vertical-offset="647" max-vertical-offset="3195">
@@ -877,9 +874,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5147059" vertical-offset="225" max-vertical-offset="11415">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="270" max-vertical-offset="11400">
           <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/controllers/ThingsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7794118" vertical-offset="138" max-vertical-offset="750">
+          <caret line="349" column="5" selection-start-line="349" selection-start-column="5" selection-end-line="349" selection-end-column="5" />
+          <folding>
+            <element signature="e#35#68#0#PHP" expanded="true" />
+            <element signature="e#437#943#0#PHP" expanded="false" />
+            <element signature="e#949#1529#0#PHP" expanded="false" />
+            <element signature="e#1536#4911#0#PHP" expanded="false" />
+            <element signature="e#4918#6717#0#PHP" expanded="false" />
+            <element signature="e#6724#7532#0#PHP" expanded="false" />
+            <element signature="e#7539#8668#0#PHP" expanded="false" />
+            <element signature="e#8675#12415#0#PHP" expanded="false" />
+            <element signature="e#8771#12409#0#PHP" expanded="false" />
+            <element signature="e#12316#12409#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

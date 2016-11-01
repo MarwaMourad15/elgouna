@@ -1,0 +1,89 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: hotel/hotel-filter
+resource_url: http://elgounaapp.com/elgouna/api/web/hotel/hotel-filter
+description: >
+    API to get All Items for hotels to do with filteration.
+parameters:
+    - name : lastId
+      description :  for pagenation   start with 0
+      optional : No
+      default : 0
+
+    - name : keyword
+      description :   search in name
+      optional : Yes
+      default : No
+      
+    - name : ratingStar
+      description :   search in rating Stars
+      optional : Yes
+      default : No
+
+    - name : servicesIds
+      description :   refrence from API services
+      optional : Yes
+      default : No
+
+    - name : userId
+      description :   for registered user -- used for isLiked
+      optional : Yes
+      default : No
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/hotel/hotel-filter
+sample_request: |
+    {
+        "lastId": 0,
+        "keyword": "u",
+        "ratingStar": "1",
+        "servicesIds": [],
+        "userId": ""
+     }
+
+sample_response: |
+
+ {
+        "hotels": [
+            {
+                "hotelId": null,
+                "name": null,
+                "location": null,
+                "longitude": null,
+                "latitude": null,
+                "reviewScore": " ()",
+                "ratingStar": null,
+                "offerExists": null,
+                "isLiked": 0,
+                "gallery": [],
+                "descrip": null,
+                "offerTitle": null,
+                "offerDescription": null,
+                "services": [],
+                "accomadtionType": null,
+                "elgounaVoice": null,
+                "email": null,
+                "phoneNumber": null,
+                "info": null,
+                "facebookLink": null,
+                "twitterLink": null,
+                "instagramLink": null,
+                "youtubeLink": null
+            }
+        ]
+    }
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

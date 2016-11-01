@@ -1,0 +1,42 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "hotel/list-hotels"
+    description : >
+        API to get All Items for hotels with filteration.
+    file_name : "yaml/list-hotels.yaml"
+    
+api2 :
+    name : "hotel/hotel-reviews"
+    description : >
+        API to get All Reviews for hotel.
+    file_name : "yaml/hotel-reviews.yaml"
+    
+api3 :
+    name : "hotel/like-hotel"
+    description : >
+        API to let user like a hotel.
+    file_name : "yaml/like-hotel.yaml"
+   
+   
+api4 :
+    name : "hotel/submit-review"
+    description : >
+        API to save user review on specific hotel.
+    file_name : "yaml/submit-hotel-review.yaml"
+    
+    
+api5 :
+    name : "hotel/hotel-filter"
+    description : >
+        API to get All Items for hotel with filteration.
+    file_name : "yaml/hotel-filter.yaml"
+    
+api6 :
+    name : "hotel/hotel-services"
+    description : >
+        API to get All Services for hotels.
+    file_name : "yaml/hotel-services.yaml"

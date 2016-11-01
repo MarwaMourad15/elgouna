@@ -1,0 +1,56 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: GET
+resource: hotel/hotel-services
+resource_url: http://elgounaapp.com/elgouna/api/web/hotel/hotel-services
+description: >
+    API to get All Services for hotels.
+parameters:
+  
+
+sample_url: http://elgounaapp.com/elgouna/api/web/hotel/hotel-services
+sample_request: |
+
+sample_response: |
+
+  {
+    "status": 1,
+    "data": {
+        "services": [
+            {
+                "id": 1,
+                "title": "Pool",
+                "imageURL": "1.png"
+            },
+            {
+                "id": 2,
+                "title": "Restaurant",
+                "imageURL": "2.png"
+            },
+            {
+                "id": 3,
+                "title": "Bar",
+                "imageURL": "3.png"
+            },
+            {
+                "id": 4,
+                "title": "TV",
+                "imageURL": "4.png"
+            },
+            {
+                "id": 5,
+                "title": "AC",
+                "imageURL": "5.png"
+            },
+           
+        ]
+    }
+  }
+
+
+sample_error: |
+
