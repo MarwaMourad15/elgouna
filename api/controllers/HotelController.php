@@ -304,7 +304,7 @@ class HotelController extends ApiController {
 	public function actionServices() {
 		$servs = [ ];
 		$services = ServicesHotel::find ()->orderBy ( [ 
-				'ordering' => SORT_ASC 
+				'ord' => SORT_ASC 
 		] )->all ();
 		foreach ( $services as $serv ) {
 			$response = [ 
@@ -320,6 +320,7 @@ class HotelController extends ApiController {
 	public function actionListHotels() {
 		$params = $this->parseRequest ();
 		if (isset ( $params ['lastId'] )) {
+			$query = Hotels::find ()->limit ( 20 );
 			$query->offset ( $params ['lastId'] );
 			
 			$hotelFilter = null;
@@ -329,7 +330,7 @@ class HotelController extends ApiController {
 				] )->one ();
 			}
 			$start = 0;
-			$query = Hotels::find ()->limit ( 20 );
+			
 			if (isset ( $params ['query'] ) && $params ['query'] != "") {
 				$query->andFilterCompare ( [ 
 						'like',
