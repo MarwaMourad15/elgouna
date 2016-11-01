@@ -35,8 +35,9 @@ class ApiController extends Controller
     }
 
     public function parseRequest() {
-        $post = file_get_contents("php://input");
-        //$post = Yii::$app->request->rawBody;
+        //$post = file_get_contents("php://input");
+        $post = Yii::$app->request->rawBody;
+        //print_r($post);
         try {
             if (isset($post) && count($post) > 0) {
                 $request = json_decode($post, true);

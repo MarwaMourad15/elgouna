@@ -66,7 +66,7 @@ sample_url: http://elgounaapp.com/elgouna/api/web/things/list-things
 sample_request: |
         {
         	"lastId":0,
-        	"keyword":"u",
+        	"keyword":"BEACHES AND POOLS",
         	"priceType":"0",
         	"visaCheck":"",
         	"popularity":"",
@@ -78,85 +78,25 @@ sample_request: |
         }
 
 sample_response: |
-
-  {
-    "beaches": [
-      {
-        "recordId": 1,
-        "beachId": 3,
-        "name": "Buzzha Beach",
-        "type": "",
-        "location": "North Mangroovy",
-        "longitude": "1",
-        "latitude": "1",
-        "reviewScore": "Excellent (4)",
-        "ratingStar": 1,
-        "offerExists": "",
-        "isLiked": "",
-        "descrip": "Only 15 minutes from downtown. Soak up the sun and watch kitesurfers. Activities include billiards, table football, beach volleyball and a kidsâ€™ playground, all free of charge.",
-        "offerTitle": "",
-        "offerDescription": "",
-        "isPoolAvailable": "",
-        "isGymAvailable": "",
-        "isWifiAvailable": "",
-        "isVisaPaymentAvailable": "",
-        "isDiningInAvailable": "",
-        "accomadtionType": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "+2 012 2661 0878 ",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "gallery": [
-          "25.jpg"
-        ]
-      },
-      {
-        "recordId": 2,
-        "beachId": 12,
-        "name": "Club 88",
-        "type": "",
-        "location": "Abu Tig Marina North",
-        "longitude": "",
-        "latitude": "",
-        "reviewScore": "",
-        "ratingStar": 1,
-        "offerExists": "",
-        "isLiked": "",
-        "descrip": "A sexy circular pool overlooking the super yacht marina. Have a fruity cocktail or order some lunch and eat by the sparkling pool.",
-        "offerTitle": "",
-        "offerDescription": "",
-        "isPoolAvailable": "",
-        "isGymAvailable": "",
-        "isWifiAvailable": "",
-        "isVisaPaymentAvailable": "",
-        "isDiningInAvailable": "",
-        "accomadtionType": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "+2 015 0739 3572",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "gallery": [
-          "72.jpg"
-        ]
-      },
+    {
+      "status": 1,
+      "data": [
+        {
+          "recordId": 1,
+          "thingId": 106,
+          "name": "BEACHES AND POOLS",
+          "category": "",
+          "image": "220.jpg"
+        },
+        {
+          "recordId": 2,
+          "thingId": 107,
+          "name": "Beaches and Pools",
+          "category": "",
+          "image": null
+        }
+      ]
+    }
 
 
 sample_error: |

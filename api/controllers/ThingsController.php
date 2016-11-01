@@ -34,6 +34,7 @@ class ThingsController extends ApiController
                     'get-thing-reviews' => ['post'],
                     'like-thing' => ['post'],
                     'submit-thing-review' => ['post'],
+                    'get-thing-details' => ['post'],
                 ],
 
             ]
@@ -61,138 +62,94 @@ class ThingsController extends ApiController
 
     public function actionListThings()
     {
-        $limit = "20";
+        $limit = "5";
         $start = "0";
         $count = 0;
         $params = $this->parseRequest();
+        print_r($params);
+        if(isset($params['lastId']) && $params['lastId']!='') {
 
-        if(isset($params['lastId']) && $params['lastId']!='')
-        {
-            $count=$params['lastId'];
+            $count = $params['lastId'];
             $start = $count + 1;
-        }
-        $query = Beaches::find();
 
-            if(isset($params['keyword']) && ($params['keyword']!=''))
-            {
+            $query = Beaches::find();
+
+            if (isset($params['keyword']) && ($params['keyword'] != '')) {
                 $keyword = $params['keyword'];
-                $query->andFilterWhere(['like','name',$keyword]);
+                $query->andFilterWhere(['like', 'name', $keyword]);
             }
 
-            if(isset($params['priceType']) && ($params['priceType']!=''))
-            {
+            if (isset($params['priceType']) && ($params['priceType'] != '')) {
                 $priceType = $params['priceType'];
-                $query->andWhere(['price_type'=>$priceType]);
+                $query->andWhere(['price_type' => $priceType]);
             }
 
-            if(isset($params['visaCheck']) && ($params['visaCheck']!=''))
-            {
+            if (isset($params['visaCheck']) && ($params['visaCheck'] != '')) {
                 $visaCheck = $params['visaCheck'];
-                $query->andWhere(['isVisaPaymentAvailable'=>$visaCheck]);
+                $query->andWhere(['isVisaPaymentAvailable' => $visaCheck]);
             }
 
-            if(isset($params['popularity']) && ($params['popularity']!=''))
-            {
+            if (isset($params['popularity']) && ($params['popularity'] != '')) {
                 $popularity = $params['popularity'];
-                $query->andWhere(['popularity'=>$popularity]);
+                $query->andWhere(['popularity' => $popularity]);
             }
 
-            if(isset($params['locationId']) && ($params['locationId']!=''))
-            {
+            if (isset($params['locationId']) && ($params['locationId'] != '')) {
                 $locationId = $params['locationId'];
-                $query->andWhere(['location_id'=>$locationId]);
+                $query->andWhere(['location_id' => $locationId]);
             }
 
-            if(isset($params['categoryId']) && ($params['categoryId']!=''))
-            {
+            if (isset($params['categoryId']) && ($params['categoryId'] != '')) {
                 $categoryId = $params['categoryId'];
-                $query->andWhere(['category_id'=>$categoryId]);
+                $query->andWhere(['category_id' => $categoryId]);
             }
 
-            if(isset($params['placeType']) && ($params['placeType']!=''))
-            {
+            if (isset($params['placeType']) && ($params['placeType'] != '')) {
                 $placeType = $params['placeType'];
-                $query->andWhere(['place_type'=>$placeType]);
+                $query->andWhere(['place_type' => $placeType]);
             }
 
-            if(isset($params['wifiCheck']) && ($params['wifiCheck']!=''))
-            {
+            if (isset($params['wifiCheck']) && ($params['wifiCheck'] != '')) {
                 $wifiCheck = $params['wifiCheck'];
-                $query->andWhere(['isWifiAvailable'=>$wifiCheck]);
+                $query->andWhere(['isWifiAvailable' => $wifiCheck]);
             }
 
             $all = array();
             $beaches = $query
-                 ->limit($limit)
+                ->limit($limit)
                 ->offset($start)
-                ->orderBy(['ord'=>SORT_ASC])->all();
+                ->orderBy(['ord' => SORT_ASC])->all();
 
-        //print_r($query);die;
+            //print_r($query);die;
             foreach ($beaches as $row) {
                 $count++;
 
                 $row_r = RateRange::find()
-                    ->where(['<=','start',$row['reviewScore']])
-                    ->andWhere(['>','end',$row['reviewScore']])
+                    ->where(['<=', 'start', $row['reviewScore']])
+                    ->andWhere(['>', 'end', $row['reviewScore']])
                     ->one();
 
                 $reviewScoreFinal = $row_r['title'] . " (" . $row['reviewScore'] . ")";
-                if($row['reviewScore'] == 0 || $row['reviewScore'] == '') {
-                    $reviewScoreFinal='';
+                if ($row['reviewScore'] == 0 || $row['reviewScore'] == '') {
+                    $reviewScoreFinal = '';
                 }
 
-
-                $isLiked = 0;
-                if( isset($params['userId']) && $params['userId'] != "") {
-                    $n_like = UserBeachLike::find()
-                        ->where(['user_id'=> $params['userId'] ])
-                        ->andWhere(['beach_id' => $row['id']])
-                        ->one();
-                    if($n_like) {
-                        $isLiked=1;
-                    }
-                }
-
-                $images = BeachesImg::getImgs($row->id);
+                $images = BeachesImg::getOneImg($row->id);
                 $response = [
                     "recordId" => intval($count),
-                    "beachId" => $row['id'],
+                    "thingId" => $row['id'],
                     "name" => $this->stringVal($row['name']),
-                    "type" => $this->stringVal($row['type']),
-                    "location" => $this->stringVal($row['location']),
-                    "longitude" => $this->stringVal($row['longitude']),
-                    "latitude" => $this->stringVal($row['latitude']),
-                    "reviewScore" => $this->stringVal($reviewScoreFinal),
-                    "ratingStar" => $this->stringVal($row['ratingStar']),
-                    "offerExists" => $this->stringVal($row['offerExists']),
-                    "isLiked" => $this->stringVal($isLiked),
-                    "descrip" => $this->stringVal($row['descrip']),
-                    "offerTitle" => $this->stringVal($row['offerTitle']),
-                    "offerDescription" => $this->stringVal($row['offerDescription']),
-                    "isPoolAvailable" => $this->stringVal($row['isPoolAvailable']),
-                    "isGymAvailable" => $this->stringVal($row['isGymAvailable']),
-                    "isWifiAvailable" => $this->stringVal($row['isWifiAvailable']),
-                    "isVisaPaymentAvailable" => $this->stringVal($row['isVisaPaymentAvailable']),
-                    "isDiningInAvailable" => $this->stringVal($row['isDiningInAvailable']),
-                    "accomadtionType" => $this->stringVal($row['accomadtionType']),
-                    "elgounaVoice" => $this->stringVal($row['elgounaVoice']),
-                    "email" => $this->stringVal($row['email']),
-                    "phoneNumber" => $this->stringVal($row['phoneNumber']),
-                    "info" => $this->stringVal($row['info']),
-                    "facebookLink" => $this->stringVal($row['facebookLink']),
-                    "twitterLink" => $this->stringVal($row['twitterLink']),
-                    "instagramLink" => $this->stringVal($row['instagramLink']),
-                    "youtubeLink" => $this->stringVal($row['youtubeLink']),
-                    "category"=>  $this->stringVal($row->category['title']),
-                    "priceType"=>  $this->stringVal($row->getTypeList()[$row->price_type]),
-                    "popularity"=>  $this->stringVal($row->getTypeList()[$row->popularity]),
-                    "locationType"=>  $this->stringVal($row->locationType['title']),
-                    "placeType"=>  $this->stringVal($row->getPlaceType()[$row->place_type]),
-                    "gallery" => $images,
+                    "category" => $this->stringVal($row->category['title']),
+                    "image" => $images,
                 ];
-                $all['beaches'][] = $response;
+                $all[] = $response;
             }
-            $this->sendSuccessResponse2(1,200,$all);
+
+            $this->sendSuccessResponse(1, 200, $all);
+        }
+        else{
+            $this->sendFailedResponse(0,402,'Invalid Parameters Missing lastId');
+        }
     }
 
 
@@ -313,6 +270,84 @@ class ThingsController extends ApiController
             $this->sendFailedResponse(0,402,'Invalid_Parameters');
         }
 
+    }
+
+
+    public function actionGetThingDetails()
+    {
+        $params = $this->parseRequest();
+
+        if(isset($params['thingId']) && $params['thingId']!='') {
+            $thing_id = $params['thingId'];
+
+            $row = Beaches::findOne(['id' => $thing_id]);
+
+            $row_r = RateRange::find()
+                ->where(['<=', 'start', $row['reviewScore']])
+                ->andWhere(['>', 'end', $row['reviewScore']])
+                ->one();
+
+            $reviewScoreFinal = $row_r['title'] . " (" . $row['reviewScore'] . ")";
+            if ($row['reviewScore'] == 0 || $row['reviewScore'] == '') {
+                $reviewScoreFinal = '';
+            }
+
+
+            $isLiked = 0;
+            if (isset($params['userId']) && $params['userId'] != "") {
+                $n_like = UserBeachLike::find()
+                    ->where(['user_id' => $params['userId']])
+                    ->andWhere(['beach_id' => $row['id']])
+                    ->one();
+                if ($n_like) {
+                    $isLiked = 1;
+                }
+            }
+
+            $images = BeachesImg::getImgs($row->id);
+            $response = [
+                "recordId" => 1,
+                "thingId" => $row['id'],
+                "name" => $this->stringVal($row['name']),
+                "type" => $this->stringVal($row['type']),
+                "location" => $this->stringVal($row['location']),
+                "longitude" => $this->stringVal($row['longitude']),
+                "latitude" => $this->stringVal($row['latitude']),
+                "reviewScore" => $this->stringVal($reviewScoreFinal),
+                "ratingStar" => $this->stringVal($row['ratingStar']),
+                "offerExists" => $this->stringVal($row['offerExists']),
+                "isLiked" => $this->stringVal($isLiked),
+                "descrip" => $this->stringVal($row['descrip']),
+                "offerTitle" => $this->stringVal($row['offerTitle']),
+                "offerDescription" => $this->stringVal($row['offerDescription']),
+                "isPoolAvailable" => $this->stringVal($row['isPoolAvailable']),
+                "isGymAvailable" => $this->stringVal($row['isGymAvailable']),
+                "isWifiAvailable" => $this->stringVal($row['isWifiAvailable']),
+                "isVisaPaymentAvailable" => $this->stringVal($row['isVisaPaymentAvailable']),
+                "isDiningInAvailable" => $this->stringVal($row['isDiningInAvailable']),
+                "accomadtionType" => $this->stringVal($row['accomadtionType']),
+                "elgounaVoice" => $this->stringVal($row['elgounaVoice']),
+                "email" => $this->stringVal($row['email']),
+                "phoneNumber" => $this->stringVal($row['phoneNumber']),
+                "info" => $this->stringVal($row['info']),
+                "facebookLink" => $this->stringVal($row['facebookLink']),
+                "twitterLink" => $this->stringVal($row['twitterLink']),
+                "instagramLink" => $this->stringVal($row['instagramLink']),
+                "youtubeLink" => $this->stringVal($row['youtubeLink']),
+                "category" => $this->stringVal($row->category['title']),
+                "priceType" => $this->stringVal($row->getTypeList()[$row->price_type]),
+                "popularity" => $this->stringVal($row->getTypeList()[$row->popularity]),
+                "locationType" => $this->stringVal($row->locationType['title']),
+                "placeType" => $this->stringVal($row->getPlaceType()[$row->place_type]),
+                "gallery" => $images,
+            ];
+            $all = $response;
+
+            $this->sendSuccessResponse(1, 200, $all);
+        }
+        else{
+            $this->sendFailedResponse(0,402,'Invalid Parameters Missing ID');
+        }
     }
 
 

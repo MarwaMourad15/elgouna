@@ -21,7 +21,7 @@ class NightLifeController extends ApiController {
 						'class' => VerbFilter::className (),
 						'actions' => [ 
 								'category' => [ 
-										'post' 
+										'get'
 								],
 								'list-night-lifes' => [ 
 										'post' 
@@ -50,6 +50,8 @@ class NightLifeController extends ApiController {
 		}
 		$this->sendSuccessResponse ( 1, 200, $cats );
 	}
+
+
 	public function actionListNightLifes() {
 		$categoryType = 1; // 0 dining 1 night life
 		
