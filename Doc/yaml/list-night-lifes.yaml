@@ -10,6 +10,12 @@ resource_url: http://elgounaapp.com/elgouna/api/web/night-life/list-night-lifes
 description: >
     API to get All Items for Night life with filteration.
 parameters:
+
+    - name : lastId
+      description :  for pagenation,  start with 0 Mandatory 
+      optional : No
+      default : No
+
     - name : keyword
       description :   search in name
       optional : Yes
@@ -54,9 +60,10 @@ parameters:
 
 sample_url: http://elgounaapp.com/elgouna/api/web/night-life/list-night-lifes
 sample_request: |
-        {
-        	"categoryType":0,
-        	"keyword":"chu",
+          {
+          	"lastId":0,
+          	"categoryType":0,
+        	"keyword":"",
         	"priceType":"0",
         	"visaCheck":"",
         	"popularity":"",
@@ -64,52 +71,83 @@ sample_request: |
         	"categoryId":"",
         	"placeType":"",
         	"wifiCheck":"0"
-        }
+
+          }
 
 sample_response: |
 
   {
-    "venues": [
+    "status": 1,
+    "data": [
       {
+        "recordId": 1,
+        "id": 37,
+        "name": "Captain's Steakhouse",
+        "category": "Restaurant",
+        "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+      },
+      {
+        "recordId": 2,
+        "id": 38,
+        "name": "Chez Pascal",
+        "category": "Cafe",
+        "image": "images/venues/81_3--chez-pascal-(2).jpg"
+      },
+      {
+        "recordId": 3,
+        "id": 39,
+        "name": "Seventh Star Restaurant",
+        "category": "Bar",
+        "image": "images/venues/83_5--Seventh-Star.JPG"
+      },
+      {
+        "recordId": 4,
+        "id": 40,
+        "name": "Art Village Cafe",
+        "category": "Restaurant and Bar",
+        "image": "images/venues/85_7--Art-village2.JPG"
+      },
+      {
+        "recordId": 5,
+        "id": 41,
+        "name": "Athena Greek Taverna",
+        "category": "Bar and Lounge",
+        "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+      },
+      {
+        "recordId": 6,
+        "id": 42,
+        "name": "Bella Italia",
+        "category": "Clubs",
+        "image": "images/venues/89_9--Bella-Italia-pizzeria5.jpg"
+      },
+      {
+        "recordId": 7,
+        "id": 48,
+        "name": "Ceviche",
+        "category": "Restaurant and Lounge",
+        "image": "images/venues/100_16--Ceviche.JPG"
+      },
+      {
+        "recordId": 8,
+        "id": 49,
+        "name": "Chez Chantal",
+        "category": "Restaurant",
+        "image": "images/venues/102_17--Chez-Chantal.JPG"
+      },
+      {
+        "recordId": 9,
         "id": 50,
         "name": "Chuchichäschtli Swiss House ",
-        "type": "Restaurant",
-        "location": "El Balad",
-        "longitude": "33.675965",
-        "latitude": "27.396560",
-        "review": "",
-        "rating": "",
-        "description": "ext 34105 / Swiss / El Balad",
-        "offerCheck": "",
-        "offerTitle": "0",
-        "offerDescription": "0",
-        "wifiCheck": "",
-        "visaCheck": "",
-        "diningCheck": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "order": 18,
-        "merchantId": "",
-        "secureHash": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "images": [
-          "104_18--swiss-restaurant2.jpg",
-          "105_18--swiss-rest.jpg",
-          "269_18--chuchichaschtli.jpg",
-          "270_18--swiss-restaurant.jpg",
-          "271_18--swiss.jpg",
-          "272_18--swiss1.jpg"
-        ]
+        "category": "Cafe",
+        "image": "images/venues/104_18--swiss-restaurant2.jpg"
+      },
+      {
+        "recordId": 10,
+        "id": 51,
+        "name": "Puddleduck",
+        "category": "Bar",
+        "image": "images/venues/106_20--Puddleduck3.jpg"
       }
     ]
   }
