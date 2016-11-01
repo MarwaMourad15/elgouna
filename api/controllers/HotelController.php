@@ -25,9 +25,6 @@ class HotelController extends ApiController {
 				'verbs' => [ 
 						'class' => VerbFilter::className (),
 						'actions' => [ 
-								'category' => [ 
-										'get' 
-								],
 								'list-hotels' => [ 
 										'post' 
 								],
@@ -45,7 +42,7 @@ class HotelController extends ApiController {
 								],
 								'hotel-services' => [ 
 										'get' 
-								],
+								] 
 						] 
 				] 
 		];
@@ -55,14 +52,16 @@ class HotelController extends ApiController {
 		if (isset ( $params ['hotelId'] ) && isset ( $params ['lastId'] )) {
 			$limit = "20";
 			$start = $params ['lastId'];
+			$count = $params ['lastId'];
 			$reviewPro = 0;
 			$all = [ ];
+			$all ['reviews'] = [ ];
 			if ($params ['lastId'] == 0) {
 				$hotel = Hotels::find ()->where ( [ 
 						'id' => $params ['hotelId'] 
 				] )->one ();
-				if ($hotel->pid != 0) {
-					$reviewsData = file_get_contents ( 'http://connect.reviewpro.com/v1/lodging/review/published?pid=' . $row ['pid'] . '&api_key=3xr4g6us6xmf5xq6abz84kbh5u3b9vght2xa29pd&sig=b396f6a3bb4e98c9ebe1e56e6518afa40700344456937ea1d21d6c142507ec3e' );
+				if ($hotel->id != 0) {
+					$reviewsData = file_get_contents ( 'http://connect.reviewpro.com/v1/lodging/review/published?pid=' . $hotel->id . '&api_key=3xr4g6us6xmf5xq6abz84kbh5u3b9vght2xa29pd&sig=b396f6a3bb4e98c9ebe1e56e6518afa40700344456937ea1d21d6c142507ec3e' );
 					$reviewsData = json_decode ( $reviewsData );
 					$rr = 0;
 					foreach ( $reviewsData->productReviews as $s => $x ) {
@@ -91,14 +90,13 @@ class HotelController extends ApiController {
 			] )->where ( [ 
 					'approved' => 1 
 			] )->orderBy ( 'date asc' )->offset ( $start )->limit ( $limit )->all ();
-			$count = $params ['lastId'];
 			foreach ( $hotelReviews as $hotelReview ) {
 				$count ++;
 				$user = Users::find ()->where ( [ 
 						'id' => $hotelReview->user_id 
 				] )->one ();
-				if ($user->imgURL != '') {
-					$imgURL = $user->imgURL;
+				if ($user->imageURL != '') {
+					$imgURL = $user->imageURL;
 				} else {
 					$imgURL = '';
 				}
@@ -114,10 +112,6 @@ class HotelController extends ApiController {
 						"user" => $user,
 						"date" => $hotelReview->date 
 				];
-			}
-			
-			if ($reviewPro == 0 && $hotelReviews->count == 0) {
-				$all ['reviews'] = array ();
 			}
 			$this->sendSuccessResponse ( 1, 200, $all );
 		} else
@@ -137,26 +131,24 @@ class HotelController extends ApiController {
 				$userLike->date = $currentDate;
 				$userLike->user_id = $params ['userId'];
 				$userLike->hotel_id = $params ['hotelId'];
-				if ($userLike->save ())
-					$all ['status'] = 1;
-				else
-					$all ['status'] = 0;
-			} else {
-				$all ['status'] = 1;
+				$userLike->save ();
 			}
-			$this->sendSuccessResponse ( 1, 200, $all );
+			$this->sendSuccessResponse ( 1, 200 );
 		} else
 			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );
 	}
 	public function actionSubmitReview() {
-		$currentDate = date ( "Y-m-d H:i:s" );
+		$all = [ ];
+		
 		$params = $this->parseRequest ();
-		if (isset ( $params ['userId'] ) && isset ( $params ['hotelId'] ) && isset ( $params ['rating'] )) {
+		if (isset ( $params ['userId'] ) && isset ( $params ['hotelId'] ) && isset ( $params ['rating'] ) && isset ( $params ['review'] )) {
+			$currentDate = date ( "Y-m-d H:i:s" );
 			$review = new HotelReview ();
 			$review->user_id = $params ['userId'];
 			$review->hotel_id = $params ['hotelId'];
 			$review->rating = intval ( $params ['rating'] );
 			$review->date = $currentDate;
+			$review->review = $params ['review'];
 			$review->save ();
 			$hotelReview = HotelReview::find ()->where ( [ 
 					'hotel_id' => $params ['hotelId'],
@@ -189,22 +181,22 @@ class HotelController extends ApiController {
 						$params ['keyword'] 
 				] );
 			}
-			if (! empty ( $params ['ratingStar'] ) || $params ['ratingStar'] == '0') {
+			if (isset ( $params ['ratingStar'] ) || $params ['ratingStar'] == '0') {
 				$hotels->andWhere ( [ 
 						'ratingStar' => $params ['ratingStar'] 
 				] );
 			}
 			if ($params ['servicesIds'] != "") {
-				$hotelServices = ServicesHotel::find ()->Where ( 'in', 'service_id', $params ['servicesIds'] )->groupBy ( 'hotel_id' )->all ();
+				$hotelServices = ServicesHotel::find ()->where ( [ 
+						'service_id' => $params ['servicesIds'] 
+				] )->groupBy ( 'hotel_id' )->all ();
 				$ids = [ ];
 				foreach ( $hotelServices as $hotelService ) {
 					$ids [] = $hotelService->hotel_id;
 				}
 				if (count ( $ids ) > 0) {
 					$hotels->andWhere ( [ 
-							'in',
-							'id',
-							$ids 
+							'id' => $ids 
 					] );
 				}
 			}
@@ -214,7 +206,7 @@ class HotelController extends ApiController {
 			foreach ( $hotels as $hotel ) {
 				$isLiked = 0;
 				$all = [ ];
-				$rateRange = RateRange::find ()->where ( [ 
+				$rateRange = RateRange::find ()->Where ( [ 
 						'<=',
 						'start',
 						$hotel->reviewScore 

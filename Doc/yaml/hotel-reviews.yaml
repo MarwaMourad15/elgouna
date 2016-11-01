@@ -1,0 +1,84 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: hotel/hotel-reviews
+resource_url: http://elgounaapp.com/elgouna/api/web/hotel/hotel-reviews
+description: >
+    API to get All Reviews for hotel.
+parameters:
+    - name : lastId
+      description :  for pagenation   start with 0
+      optional : NO
+      default :
+
+    - name : hotelId
+      description :   hotel id that we need to get reviews for
+      optional : no
+      default : No
+
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/hotel/hotel-reviews
+sample_request: |
+        {
+        	"hotelId":22,
+        	"lastId":0
+        }
+
+sample_response: |
+
+  {
+    "status": 1,
+    "data": {
+        "reviews": [
+            {
+                "recordId": 1,
+                "id": 1,
+                "review": "Fineeeeeeeee",
+                "rating": 4,
+                "user": {
+                    "username": null,
+                    "imgURL": ""
+                },
+                "date": "2015-12-21 13:41:51"
+            },
+            {
+                "recordId": 2,
+                "id": 2,
+                "review": "weeeeeeeeeeeeeeeeeFineeeeeeeee",
+                "rating": 10,
+                "user": {
+                    "username": null,
+                    "imgURL": ""
+                },
+                "date": "2015-12-21 13:45:03"
+            },
+            {
+                "recordId": 3,
+                "id": 3,
+                "review": "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.sjdndbzbzbbzbxbxbxnx",
+                "rating": 5,
+                "user": {
+                    "username": null,
+                    "imgURL": ""
+                },
+                "date": "2015-12-27 19:22:32"
+            }
+        ]
+    }
+}
+
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

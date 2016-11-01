@@ -1,0 +1,59 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: hotel/submit-review
+resource_url: http://elgounaapp.com/elgouna/api/web/hotel/submit-review
+description: >
+  API to save user review on specific hotel
+parameters:
+    - name : userId
+      description :  for registered user
+      optional : NO
+      default :
+
+    - name : hotelId
+      description :   Hotel id to like
+      optional : no
+      default : No
+
+    - name : rating
+      description :   integer
+      optional : no
+      default : No
+
+    - name : review
+      description :   string review
+      optional : no
+      default : No
+
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/hotel/submit-review
+sample_request: |
+        {
+        	"hotelId":22,
+        	"userId":115,
+        	"rating":3,
+        	"review":"testing"
+        }
+
+sample_response: |
+
+  {
+      "status": 1
+  }
+
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

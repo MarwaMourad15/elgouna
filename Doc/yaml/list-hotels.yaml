@@ -1,0 +1,107 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: hotel/list-hotels
+resource_url: http://elgounaapp.com/elgouna/api/web/hotel/list-hotels
+description: >
+    API to get All Items for hotels to do with filteration.
+parameters:
+    - name : lastId
+      description :  for pagenation   start with 0
+      optional : No
+      default : 0
+
+    - name : query
+      description :   search in name
+      optional : Yes
+      default : No
+
+    - name : filterId
+      description :   refrence from API filter
+      optional : Yes
+      default : No
+
+    - name : userId
+      description :   for registered user -- used for isLiked
+      optional : Yes
+      default : No
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/hotel/list-hotels
+sample_request: |
+        {
+        	"lastId":0,
+        	"query":"u",
+        	"filterId":"1",
+        	"userId":""
+        }
+
+sample_response: |
+
+ {
+    "hotels": [
+        {
+            "recordId": 0,
+            "hotelId": 72,
+            "name": "La Maison Bleue",
+            "location": "Abu Tig",
+            "longitude": "33.670299",
+            "latitude": "27.422547",
+            "bookingLink": "https://gc.synxis.com/rez.aspx?Hotel=62615&Chain=11787&adult=2&child=0&template=RBE&shell=RBE&currency=EGP",
+            "reviewScore": "Excellent (4.3)",
+            "ratingStar": 6,
+            "offerExists": 0,
+            "isLiked": 0,
+            "gallery": [
+                "images/hotels/512.jpg",
+                "images/hotels/1418.jpg",
+                "images/hotels/1419.jpg",
+                "images/hotels/1420.jpg",
+            ],
+            "descrip": "La Maison Bleue is a luxury guesthouse set directly on the northern shores of Mangroovy Beach and its kitesurfing stations, it offers seclusion as well as easy access to the town's facilities. The restaurants, bars, boutiques, and street festivals of Abu Tig Marina are in close proximity, and the Downtown shopping and dining venues are a few kilometers away. La Maison Bleue caters to a clientele accustomed to the excellence of luxury hotels. Couples can rely on flawless organization to celebrate special occasions, while celebrities can rest assured that their privacy will be respected. Evoking the grandeur of olden times while offering all the modern amenities, La Maison Bleue transports you into a different world yet makes you feel right at home.\r\n\r\nPools: 1 heated in the winter time\r\nRestaurants: 1\r\nBars: 1\r\n",
+            "offerTitle": "",
+            "offerDescription": "",
+            "services": [
+                {
+                    "id": 1,
+                    "title": "Pool",
+                    "imageURL": "1.png"
+                },
+                {
+                    "id": 2,
+                    "title": "Restaurant",
+                    "imageURL": "2.png"
+                },
+                {
+                    "id": 3,
+                    "title": "Bar",
+                    "imageURL": "3.png"
+                },
+            ],
+            "accomadtionType": "Total rooms: 10 \r\nViews: Sea, pool\r\n",
+            "elgounaVoice": "",
+            "email": "front.office@lamaison-bleue.com",
+            "phoneNumber": "+20653545604",
+            "info": "http://www.mosaique.elgouna.com",
+            "facebookLink": "https://www.facebook.com/LaMaisonBleue.ElGouna?fref=ts",
+            "twitterLink": "",
+            "instagramLink": "https://www.instagram.com/lamaisonbleue_elgouna/ ",
+            "youtubeLink": "https://www.youtube.com/user/ELGOUNAofficial     "
+        },
+     ]
+  }
+
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+
