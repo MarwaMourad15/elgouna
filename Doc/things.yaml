@@ -31,8 +31,3 @@ api5 :
     description : >
         API to save user review on specific item
     file_name : "yaml/submit-thing-review.yaml"
-api6 :
-    name : "things/get-thing-details"
-    description : >
-        API to save user review on specific item
-    file_name : "yaml/get-thing-details.yaml"

@@ -1,0 +1,10 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "weather/get-weather-forecast"
+    description : >
+        API to get weather.
+    file_name : "yaml/get-weather-forecast.yaml"

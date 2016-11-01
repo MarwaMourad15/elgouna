@@ -68,14 +68,4 @@ class VenuesImg extends \yii\db\ActiveRecord
         }
         return $venue_json;
     }
-
-    public static function getVenueOneImg($venue_id)
-    {
-        $img = VenuesImg::find()
-            ->where(['venue_id' => $venue_id ])
-            ->one();
-        $venue_img = $img['img'];
-
-        return $venue_img;
-    }
 }
