@@ -55,12 +55,12 @@ class DiningController extends ApiController {
 	}
 
 	public function actionListDinings() {
-        $limit = "5";
-        $start = "0";
+        $limit = 10;
+        $start = 0;
         $count = 0;
 
 		$params = $this->parseRequest ();
-        if(isset($params['lastId']) && $params['lastId']!='') {
+        if(isset($params['lastId'])) {
             $count = $params['lastId'];
             $start = $count + 1;
 
@@ -137,6 +137,7 @@ class DiningController extends ApiController {
             ])->all();
             // print_r($venues);die;
             foreach ($venues as $venue) {
+                $count++;
                 $images = VenuesImg::getVenueOneImg($venue->id);
                 $response = [
                     "recordId" => intval($count),
@@ -157,8 +158,7 @@ class DiningController extends ApiController {
     public function actionGetDiningDetails() {
         $params = $this->parseRequest ();
 
-        if(isset($params['diningId']) && $params['diningId']!='') {
-
+        if(isset($params['diningId'])) {
             $diningId = $params['diningId'];
             $venue = Venues::findOne(['id' => $diningId]);
                 $images = VenuesImg::getVenueImg($venue->id);

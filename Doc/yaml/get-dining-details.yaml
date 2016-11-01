@@ -1,0 +1,83 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: dining/get-dining-details
+resource_url: http://elgounaapp.com/elgouna/api/web/dining/get-dining-details
+description: >
+    API to get Item details for Things to do.
+parameters:
+    - name : diningId
+      description :  dining ID
+      optional : No
+      default : 0
+
+    - name : userId
+      description :   for registered user -- used for isLiked
+      optional : Yes
+      default : No
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/dining/get-dining-details
+sample_request: |
+        {
+        	"diningId":37
+        }
+
+sample_response: |
+
+  {
+    "status": 1,
+    "data": [
+      {
+        "id": 37,
+        "name": "Captain's Steakhouse",
+        "type": "Restaurant",
+        "location": "Abu Tig",
+        "longitude": "33.674181",
+        "latitude": "27.408594",
+        "review": "",
+        "rating": "",
+        "description": "ext 144 / American Steaks / Abu Tig Marina \r\nAmerican-style steak dishes is in a great atmosphere at Captain's Inn on the marina boardwalk. \r\n",
+        "offerCheck": "",
+        "offerTitle": "0",
+        "offerDescription": "0",
+        "wifiCheck": "",
+        "visaCheck": "",
+        "diningCheck": "",
+        "elgounaVoice": "",
+        "email": "",
+        "phoneNumber": "",
+        "info": "",
+        "facebookLink": "",
+        "twitterLink": "",
+        "instagramLink": "",
+        "youtubeLink": "",
+        "order": 2,
+        "merchantId": "",
+        "secureHash": "",
+        "category": "",
+        "priceType": "Low",
+        "popularity": "Low",
+        "locationType": "",
+        "placeType": "Beach Front",
+        "images": [
+          "images/venues/87_8--Athena-Greek-Taverna.JPG",
+          "images/venues/87_8--Athena-Greek-Taverna.JPG"
+        ]
+      }
+    ]
+  }
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+

@@ -14,3 +14,8 @@ api2 :
     description : >
         API to get All Items for dining with filteration.
     file_name : "yaml/list-dinings.yaml"
+api3 :
+    name : "dining/get-dining-details"
+    description : >
+        API to get All Items for dining with filteration.
+    file_name : "yaml/get-dining-details.yaml"

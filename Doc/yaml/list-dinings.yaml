@@ -10,6 +10,11 @@ resource_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
 description: >
     API to get All Items for dining with filteration.
 parameters:
+    - name : lastId
+          description :  for pagenation   start with 0
+          optional : No
+          default : 0
+
     - name : keyword
       description :   search in name
       optional : Yes
@@ -55,64 +60,59 @@ parameters:
 sample_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
 sample_request: |
         {
-        	"categoryType":0,
-        	"keyword":"chu",
-        	"priceType":"0",
-        	"visaCheck":"",
-        	"popularity":"",
-        	"locationId":"",
-        	"categoryId":"",
-        	"placeType":"",
-        	"wifiCheck":"0"
+          "lastId":0,
+          "categoryType":0,
+          "keyword":"",
+          "priceType":"0",
+          "visaCheck":"",
+          "popularity":"",
+          "locationId":"",
+          "categoryId":"",
+          "placeType":"",
+          "wifiCheck":"0"
         }
 
 sample_response: |
-
-  {
-    "venues": [
       {
-        "id": 50,
-        "name": "Chuchichäschtli Swiss House ",
-        "type": "Restaurant",
-        "location": "El Balad",
-        "longitude": "33.675965",
-        "latitude": "27.396560",
-        "review": "",
-        "rating": "",
-        "description": "ext 34105 / Swiss / El Balad",
-        "offerCheck": "",
-        "offerTitle": "0",
-        "offerDescription": "0",
-        "wifiCheck": "",
-        "visaCheck": "",
-        "diningCheck": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "order": 18,
-        "merchantId": "",
-        "secureHash": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "images": [
-          "104_18--swiss-restaurant2.jpg",
-          "105_18--swiss-rest.jpg",
-          "269_18--chuchichaschtli.jpg",
-          "270_18--swiss-restaurant.jpg",
-          "271_18--swiss.jpg",
-          "272_18--swiss1.jpg"
-        ]
-      }
-    ]
-  }
+      "status": 1,
+      "data": [
+        {
+          "recordId": 1,
+          "id": 37,
+          "name": "Captain's Steakhouse",
+          "category": "",
+          "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+        },
+        {
+          "recordId": 2,
+          "id": 38,
+          "name": "Chez Pascal",
+          "category": "",
+          "image": "images/venues/81_3--chez-pascal-(2).jpg"
+        },
+        {
+          "recordId": 3,
+          "id": 39,
+          "name": "Seventh Star Restaurant",
+          "category": "",
+          "image": "images/venues/83_5--Seventh-Star.JPG"
+        },
+        {
+          "recordId": 4,
+          "id": 40,
+          "name": "Art Village Cafe",
+          "category": "",
+          "image": "images/venues/85_7--Art-village2.JPG"
+        },
+        {
+          "recordId": 5,
+          "id": 41,
+          "name": "Athena Greek Taverna",
+          "category": "",
+          "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+        }
+      ]
+    }
 
 sample_error: |
 
