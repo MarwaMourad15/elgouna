@@ -2,6 +2,10 @@
 
 namespace backend\controllers;
 
+use backend\models\BeachesImg;
+use backend\models\HotelsImg;
+use backend\models\Services;
+use backend\models\VenuesImg;
 use Yii;
 use backend\models\Beaches;
 use backend\models\BeachesSearch;
@@ -121,4 +125,64 @@ class BeachesController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    /*public function actionUpdateImagesB()
+    {
+        $beaches = BeachesImg::find()->all();;
+        foreach ($beaches as $row) {
+           echo $_img = $row['img'];
+            echo '<br>';
+            $img = 'images/beaches/'.$_img;
+            echo $row->img = $img;
+            echo '<br>';
+            $row->save();
+
+        }
+    }
+
+
+    public function actionUpdateImagesV()
+    {
+        $beaches = VenuesImg::find()->all();;
+        foreach ($beaches as $row) {
+            echo $_img = $row['img'];
+            echo '<br>';
+            $img = 'images/venues/'.$_img;
+            echo $row->img = $img;
+            echo '<br>';
+            $row->save();
+
+        }
+    }
+
+
+    public function actionUpdateImagesS()
+    {
+        $beaches = Services::find()->all();;
+        foreach ($beaches as $row) {
+            echo $_img = $row['img'];
+            echo '<br>';
+            $img = 'images/services/'.$_img;
+            echo $row->img = $img;
+            echo '<br>';
+            $row->save();
+
+        }
+    }
+
+
+    public function actionUpdateImagesH()
+    {
+        $beaches = HotelsImg::find()->all();;
+        foreach ($beaches as $row) {
+            echo $_img = $row['img'];
+            echo '<br>';
+            $img = 'images/hotels/'.$_img;
+            echo $row->img = $img;
+            echo '<br>';
+            $row->save();
+
+        }
+    }*/
+
 }

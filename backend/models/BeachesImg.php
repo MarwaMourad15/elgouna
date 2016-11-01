@@ -63,4 +63,17 @@ class BeachesImg extends \yii\db\ActiveRecord
         }
         return $_json;
     }
+
+    public static function getOneImg($beach_id)
+    {
+        $_json = array();
+        $images = BeachesImg::find()
+            ->where(['beach_id' => $beach_id ])
+            ->one();
+        //foreach ($images as $img) {
+            $_img = $images['img'];
+          //  $_json[] = $_img;
+        //}
+        return $_img;
+    }
 }

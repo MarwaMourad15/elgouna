@@ -1,0 +1,82 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: things/list-things
+resource_url: http://elgounaapp.com/elgouna/api/web/things/get-thing-details
+description: >
+    API to get Item details for Things to do.
+parameters:
+    - name : thingId
+      description :  things ID
+      optional : No
+      default : 0
+
+    - name : userId
+      description :   for registered user -- used for isLiked
+      optional : Yes
+      default : No
+
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/things/get-thing-details
+sample_request: |
+        {
+        	"thingId":106
+        }
+
+sample_response: |
+
+  {
+    "status": 1,
+    "data": {
+      "recordId": 1,
+      "thingId": 106,
+      "name": "BEACHES AND POOLS",
+      "type": "Things",
+      "location": "el gouna",
+      "longitude": "",
+      "latitude": "",
+      "reviewScore": "",
+      "ratingStar": 5,
+      "offerExists": "",
+      "isLiked": "",
+      "descrip": "   xdfgbhnjmk,trd dfghnjm",
+      "offerTitle": "",
+      "offerDescription": "",
+      "isPoolAvailable": "",
+      "isGymAvailable": "",
+      "isWifiAvailable": "",
+      "isVisaPaymentAvailable": "",
+      "isDiningInAvailable": "",
+      "accomadtionType": "",
+      "elgounaVoice": "",
+      "email": "",
+      "phoneNumber": "",
+      "info": "",
+      "facebookLink": "",
+      "twitterLink": "",
+      "instagramLink": "",
+      "youtubeLink": "",
+      "category": "",
+      "priceType": "Low",
+      "popularity": "Low",
+      "locationType": "",
+      "placeType": "Beach Front",
+      "gallery": [
+        "220.jpg"
+      ]
+    }
+  }
+
+sample_error: |
+
+		{
+			"status": 0,
+			"error_code": 400,
+			"errors": "Invalid_Parameters"
+		}
+
