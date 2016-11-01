@@ -1,0 +1,48 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: GET
+resource: weather/get-weather-forecast
+resource_url: http://elgounaapp.com/elgouna/api/web/weather/get-weather-forecast
+description: >
+    API to get weather.
+parameters:
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/weather/get-weather-forecast
+sample_request: |
+
+
+sample_response: |
+
+  {
+    "todaysWeather": {},
+    "wholeWeekWeatherForcast": [
+        {
+            "dayName": "Wed",
+            "temp": "28",
+            "weatherDesc": "Clear"
+        },
+        {
+            "dayName": "Thu",
+            "temp": "28",
+            "weatherDesc": "Partly cloudy"
+        },
+        {
+            "dayName": "Fri",
+            "temp": "29",
+            "weatherDesc": "Clear"
+        },
+        {
+            "dayName": "Sat",
+            "temp": "28",
+            "weatherDesc": "Clear"
+        }
+    ]
+  }
+
+
+sample_error: |

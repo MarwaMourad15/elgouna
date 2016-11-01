@@ -67,7 +67,7 @@ class HotelController extends ApiController {
 					foreach ( $reviewsData->productReviews as $s => $x ) {
 						foreach ( $x->reviews as $n => $m ) {
 							$reviewPro ++;
-							$userData = new stdClass ();
+							$userData = new \stdClass ();
 							$userData->username = $m->author->name;
 							$userData->imgURL = "";
 							$reviewDate = gmdate ( "d-m-Y", $m->publishDate );
@@ -113,7 +113,7 @@ class HotelController extends ApiController {
 						"date" => $hotelReview->date 
 				];
 			}
-			$this->sendSuccessResponse ( 1, 200, $all );
+			$this->sendSuccessResponse2 ( 1, 200, $all );
 		} else
 			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );
 	}
@@ -133,7 +133,8 @@ class HotelController extends ApiController {
 				$userLike->hotel_id = $params ['hotelId'];
 				$userLike->save ();
 			}
-			$this->sendSuccessResponse ( 1, 200 );
+			$all ['status'] = 1;
+			$this->sendSuccessResponse2 ( 1, 200, $all );
 		} else
 			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );
 	}
@@ -166,7 +167,7 @@ class HotelController extends ApiController {
 				$all ['status'] = 1;
 			else
 				$all ['status'] = 0;
-			$this->sendSuccessResponse ( 1, 200, $all );
+			$this->sendSuccessResponse2 ( 1, 200, $all );
 		} else
 			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );
 	}
@@ -247,7 +248,9 @@ class HotelController extends ApiController {
 							"imageURL" => $hotelService->img 
 					];
 				}
+				$count ++;
 				$all ['hotels'] [] = [ 
+						"recordId" => $count,
 						"hotelId" => $hotel->id,
 						"name" => $hotel->name,
 						"location" => $hotel->location,
@@ -273,7 +276,7 @@ class HotelController extends ApiController {
 						"youtubeLink" => $hotel->youtubeLink 
 				];
 			}
-			$this->sendSuccessResponse ( 1, 200, $all );
+			$this->sendSuccessResponse2 ( 1, 200, $all );
 		} else
 			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );
 	}
@@ -288,7 +291,7 @@ class HotelController extends ApiController {
 					'imageURL' => $service->img 
 			];
 		}
-		$this->sendSuccessResponse ( 1, 200, $all );
+		$this->sendSuccessResponse2 ( 1, 200, $all );
 	}
 	public function actionListHotels() {
 		$params = $this->parseRequest ();
@@ -305,7 +308,7 @@ class HotelController extends ApiController {
 			$start = 0;
 			
 			if (isset ( $params ['query'] ) && $params ['query'] != "") {
-				$query->andFilterCompare ( [ 
+				$query->andWhere ( [ 
 						'like',
 						'name',
 						$params ['query'] 
@@ -362,6 +365,7 @@ class HotelController extends ApiController {
 							"imageURL" => $hotelService->img 
 					];
 				}
+				$count ++;
 				$response = [ 
 						"recordId" => $count,
 						"hotelId" => $hotel->id,
