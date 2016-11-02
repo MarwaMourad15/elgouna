@@ -61,12 +61,12 @@ class ThingsController extends ApiController
 
     public function actionListThings()
     {
-        $limit = "5";
-        $start = "0";
+        $limit = 10;
+        $start = 0;
         $count = 0;
         $params = $this->parseRequest();
-        print_r($params);
-        if(isset($params['lastId']) && $params['lastId']!='') {
+       // print_r($params);
+        if(isset($params['lastId'])) {
 
             $count = $params['lastId'];
             $start = $count + 1;
