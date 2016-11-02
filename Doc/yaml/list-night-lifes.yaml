@@ -70,87 +70,90 @@ sample_request: |
         	"locationId":"",
         	"categoryId":"",
         	"placeType":"",
-        	"wifiCheck":"0"
+        	"wifiCheck":"0",
+        	"taste":"0",
+            "cleanliness":"0",
+            "rating":"0",
 
           }
 
 sample_response: |
 
-  {
-    "status": 1,
-    "data": [
       {
-        "recordId": 1,
-        "id": 37,
-        "name": "Captain's Steakhouse",
-        "category": "Restaurant",
-        "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
-      },
-      {
-        "recordId": 2,
-        "id": 38,
-        "name": "Chez Pascal",
-        "category": "Cafe",
-        "image": "images/venues/81_3--chez-pascal-(2).jpg"
-      },
-      {
-        "recordId": 3,
-        "id": 39,
-        "name": "Seventh Star Restaurant",
-        "category": "Bar",
-        "image": "images/venues/83_5--Seventh-Star.JPG"
-      },
-      {
-        "recordId": 4,
-        "id": 40,
-        "name": "Art Village Cafe",
-        "category": "Restaurant and Bar",
-        "image": "images/venues/85_7--Art-village2.JPG"
-      },
-      {
-        "recordId": 5,
-        "id": 41,
-        "name": "Athena Greek Taverna",
-        "category": "Bar and Lounge",
-        "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
-      },
-      {
-        "recordId": 6,
-        "id": 42,
-        "name": "Bella Italia",
-        "category": "Clubs",
-        "image": "images/venues/89_9--Bella-Italia-pizzeria5.jpg"
-      },
-      {
-        "recordId": 7,
-        "id": 48,
-        "name": "Ceviche",
-        "category": "Restaurant and Lounge",
-        "image": "images/venues/100_16--Ceviche.JPG"
-      },
-      {
-        "recordId": 8,
-        "id": 49,
-        "name": "Chez Chantal",
-        "category": "Restaurant",
-        "image": "images/venues/102_17--Chez-Chantal.JPG"
-      },
-      {
-        "recordId": 9,
-        "id": 50,
-        "name": "Chuchichäschtli Swiss House ",
-        "category": "Cafe",
-        "image": "images/venues/104_18--swiss-restaurant2.jpg"
-      },
-      {
-        "recordId": 10,
-        "id": 51,
-        "name": "Puddleduck",
-        "category": "Bar",
-        "image": "images/venues/106_20--Puddleduck3.jpg"
+        "status": 1,
+        "data": [
+          {
+            "recordId": 1,
+            "id": 37,
+            "name": "Captain's Steakhouse",
+            "category": "Restaurant",
+            "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+          },
+          {
+            "recordId": 2,
+            "id": 38,
+            "name": "Chez Pascal",
+            "category": "Cafe",
+            "image": "images/venues/81_3--chez-pascal-(2).jpg"
+          },
+          {
+            "recordId": 3,
+            "id": 39,
+            "name": "Seventh Star Restaurant",
+            "category": "Bar",
+            "image": "images/venues/83_5--Seventh-Star.JPG"
+          },
+          {
+            "recordId": 4,
+            "id": 40,
+            "name": "Art Village Cafe",
+            "category": "Restaurant and Bar",
+            "image": "images/venues/85_7--Art-village2.JPG"
+          },
+          {
+            "recordId": 5,
+            "id": 41,
+            "name": "Athena Greek Taverna",
+            "category": "Bar and Lounge",
+            "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+          },
+          {
+            "recordId": 6,
+            "id": 42,
+            "name": "Bella Italia",
+            "category": "Clubs",
+            "image": "images/venues/89_9--Bella-Italia-pizzeria5.jpg"
+          },
+          {
+            "recordId": 7,
+            "id": 48,
+            "name": "Ceviche",
+            "category": "Restaurant and Lounge",
+            "image": "images/venues/100_16--Ceviche.JPG"
+          },
+          {
+            "recordId": 8,
+            "id": 49,
+            "name": "Chez Chantal",
+            "category": "Restaurant",
+            "image": "images/venues/102_17--Chez-Chantal.JPG"
+          },
+          {
+            "recordId": 9,
+            "id": 50,
+            "name": "Chuchichäschtli Swiss House ",
+            "category": "Cafe",
+            "image": "images/venues/104_18--swiss-restaurant2.jpg"
+          },
+          {
+            "recordId": 10,
+            "id": 51,
+            "name": "Puddleduck",
+            "category": "Bar",
+            "image": "images/venues/106_20--Puddleduck3.jpg"
+          }
+        ]
       }
-    ]
-  }
 
 sample_error: |
 

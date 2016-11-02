@@ -50,11 +50,27 @@ parameters:
       optional : Yes
       default : No
 
+    - name : taste
+       description :  0 low   1 medium   2 high
+       optional : Yes
+       default : No
+
+    - name : cleanliness
+       description :  0 low   1 medium   2 high
+       optional : Yes
+       default : No
+
+    - name : rating
+      description :  0 low   1 medium   2 high
+      optional : Yes
+      default : No
+
 
 
 sample_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
 sample_request: |
         {
+            "lastId":0,
         	"categoryType":0,
         	"keyword":"chu",
         	"priceType":"0",
@@ -63,56 +79,89 @@ sample_request: |
         	"locationId":"",
         	"categoryId":"",
         	"placeType":"",
-        	"wifiCheck":"0"
+        	"wifiCheck":"0",
+        	"taste":"0",
+        	"cleanliness":"0",
+        	"rating":"0"
         }
 
 sample_response: |
 
-  {
-    "venues": [
       {
-        "id": 50,
-        "name": "Chuchichäschtli Swiss House ",
-        "type": "Restaurant",
-        "location": "El Balad",
-        "longitude": "33.675965",
-        "latitude": "27.396560",
-        "review": "",
-        "rating": "",
-        "description": "ext 34105 / Swiss / El Balad",
-        "offerCheck": "",
-        "offerTitle": "0",
-        "offerDescription": "0",
-        "wifiCheck": "",
-        "visaCheck": "",
-        "diningCheck": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "order": 18,
-        "merchantId": "",
-        "secureHash": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "images": [
-          "104_18--swiss-restaurant2.jpg",
-          "105_18--swiss-rest.jpg",
-          "269_18--chuchichaschtli.jpg",
-          "270_18--swiss-restaurant.jpg",
-          "271_18--swiss.jpg",
-          "272_18--swiss1.jpg"
+        "status": 1,
+        "data": [
+          {
+            "recordId": 1,
+            "id": 44,
+            "name": "Bob's Hot Dogs",
+            "category": "American",
+            "image": "images/venues/93_11--Bob-Hot-dogs.jpg"
+          },
+          {
+            "recordId": 2,
+            "id": 45,
+            "name": "Breeze",
+            "category": "Italian",
+            "image": "images/venues/94_12--Breeze2.jpg"
+          },
+          {
+            "recordId": 3,
+            "id": 46,
+            "name": "Bua Khao",
+            "category": "Belgian",
+            "image": "images/venues/96_13--Bua-Khao-Thai.jpg"
+          },
+          {
+            "recordId": 4,
+            "id": 47,
+            "name": "The Cedars",
+            "category": "Arabian",
+            "image": "images/venues/98_15--The-Cedars-Lebanese-house.jpg"
+          },
+          {
+            "recordId": 5,
+            "id": 55,
+            "name": "Fish Market",
+            "category": "French",
+            "image": "images/venues/114_26--Fish-Market.JPG"
+          },
+          {
+            "recordId": 6,
+            "id": 56,
+            "name": "The Golden Chicken",
+            "category": "American",
+            "image": "images/venues/116_27--The-Golden-Chicken.JPG"
+          },
+          {
+            "recordId": 7,
+            "id": 57,
+            "name": "Grand Lodge Restaurant",
+            "category": "Italian",
+            "image": "images/venues/118_28--Graand-lodge-club.jpg"
+          },
+          {
+            "recordId": 8,
+            "id": 58,
+            "name": "Grasshopper",
+            "category": "Belgian",
+            "image": "images/venues/120_29--grasshoper3.jpg"
+          },
+          {
+            "recordId": 9,
+            "id": 59,
+            "name": "Hedra",
+            "category": "Arabian",
+            "image": "images/venues/122_30--Hedra1.jpg"
+          },
+          {
+            "recordId": 10,
+            "id": 67,
+            "name": "Le Deauville",
+            "category": "French",
+            "image": "images/venues/136_39--Le-deauville1.jpg"
+          }
         ]
       }
-    ]
-  }
 
 sample_error: |
 

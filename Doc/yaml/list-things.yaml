@@ -79,84 +79,81 @@ sample_request: |
 
 sample_response: |
 
-  {
-    "beaches": [
       {
-        "recordId": 1,
-        "beachId": 3,
-        "name": "Buzzha Beach",
-        "type": "",
-        "location": "North Mangroovy",
-        "longitude": "1",
-        "latitude": "1",
-        "reviewScore": "Excellent (4)",
-        "ratingStar": 1,
-        "offerExists": "",
-        "isLiked": "",
-        "descrip": "Only 15 minutes from downtown. Soak up the sun and watch kitesurfers. Activities include billiards, table football, beach volleyball and a kidsâ€™ playground, all free of charge.",
-        "offerTitle": "",
-        "offerDescription": "",
-        "isPoolAvailable": "",
-        "isGymAvailable": "",
-        "isWifiAvailable": "",
-        "isVisaPaymentAvailable": "",
-        "isDiningInAvailable": "",
-        "accomadtionType": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "+2 012 2661 0878 ",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "gallery": [
-          "25.jpg"
+        "status": 1,
+        "data": [
+          {
+            "recordId": 1,
+            "thingId": 87,
+            "name": "hesham beach",
+            "category": "",
+            "image": "images/beaches/198.jpg"
+          },
+          {
+            "recordId": 2,
+            "thingId": 89,
+            "name": "yyy",
+            "category": "",
+            "image": "images/beaches/201.jpg"
+          },
+          {
+            "recordId": 3,
+            "thingId": 1,
+            "name": "Ali Pasha Hotel",
+            "category": "Beaches and Pools",
+            "image": "images/beaches/10.jpg"
+          },
+          {
+            "recordId": 4,
+            "thingId": 3,
+            "name": "Buzzha Beach",
+            "category": "Kite Surfing",
+            "image": "images/beaches/25.jpg"
+          },
+          {
+            "recordId": 5,
+            "thingId": 106,
+            "name": "BEACHES AND POOLS",
+            "category": "",
+            "image": "images/beaches/220.jpg"
+          },
+          {
+            "recordId": 6,
+            "thingId": 12,
+            "name": "Club 88",
+            "category": "Golf",
+            "image": "images/beaches/72.jpg"
+          },
+          {
+            "recordId": 7,
+            "thingId": 83,
+            "name": "hello",
+            "category": "",
+            "image": "images/beaches/193.jpg"
+          },
+          {
+            "recordId": 8,
+            "thingId": 88,
+            "name": "hello",
+            "category": "",
+            "image": "images/beaches/200.jpg"
+          },
+          {
+            "recordId": 9,
+            "thingId": 90,
+            "name": "hello2",
+            "category": "",
+            "image": "images/beaches/202.png"
+          },
+          {
+            "recordId": 10,
+            "thingId": 94,
+            "name": "test",
+            "category": "",
+            "image": "images/beaches/208.jpg"
+          }
         ]
-      },
-      {
-        "recordId": 2,
-        "beachId": 12,
-        "name": "Club 88",
-        "type": "",
-        "location": "Abu Tig Marina North",
-        "longitude": "",
-        "latitude": "",
-        "reviewScore": "",
-        "ratingStar": 1,
-        "offerExists": "",
-        "isLiked": "",
-        "descrip": "A sexy circular pool overlooking the super yacht marina. Have a fruity cocktail or order some lunch and eat by the sparkling pool.",
-        "offerTitle": "",
-        "offerDescription": "",
-        "isPoolAvailable": "",
-        "isGymAvailable": "",
-        "isWifiAvailable": "",
-        "isVisaPaymentAvailable": "",
-        "isDiningInAvailable": "",
-        "accomadtionType": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "+2 015 0739 3572",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "gallery": [
-          "72.jpg"
-        ]
-      },
+      }
 
 
 sample_error: |

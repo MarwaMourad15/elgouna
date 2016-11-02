@@ -1,17 +1,16 @@
-
 ---
 version: v1.0
 rate_limited: Yes
 response_format: JSON
 authentication: None
 method: Post
-resource:night-life/get-night-details
-resource_url: http://elgounaapp.com/elgouna/api/web/night-life/get-night-details
+resource: dining/get-dining-details
+resource_url: http://elgounaapp.com/elgouna/api/web/dining/get-dining-details
 description: >
-
+    API to get Item details for Things to do.
 parameters:
-    - name : nightId
-      description :  night ID
+    - name : diningId
+      description :  dining ID
       optional : No
       default : 0
 
@@ -22,10 +21,10 @@ parameters:
 
 
 
-sample_url: http://elgounaapp.com/elgouna/api/web/night-life/get-night-details
+sample_url: http://elgounaapp.com/elgouna/api/web/dining/get-dining-details
 sample_request: |
         {
-        	"nightId":37
+        	"diningId":37
         }
 
 sample_response: |
