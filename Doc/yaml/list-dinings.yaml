@@ -55,6 +55,20 @@ parameters:
       optional : Yes
       default : No
 
+    - name : taste
+      description :  0 low   1 medium   2 high
+      optional : Yes
+      default : No
+
+    - name : cleanliness
+      description :  0 low   1 medium   2 high
+      optional : Yes
+      default : No
+
+    - name : rating
+      description :  0 low   1 medium   2 high
+      optional : Yes
+      default : No
 
 
 sample_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
@@ -69,7 +83,10 @@ sample_request: |
           "locationId":"",
           "categoryId":"",
           "placeType":"",
-          "wifiCheck":"0"
+          "wifiCheck":"0",
+          "taste":"0",
+          "cleanliness":"0",
+          "rating":"0"
         }
 
 sample_response: |

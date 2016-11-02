@@ -32,45 +32,46 @@ sample_response: |
 
   {
     "status": 1,
-    "data": [
-      {
-        "id": 37,
-        "name": "Captain's Steakhouse",
-        "type": "Restaurant",
-        "location": "Abu Tig",
-        "longitude": "33.674181",
-        "latitude": "27.408594",
-        "review": "",
-        "rating": "",
-        "description": "ext 144 / American Steaks / Abu Tig Marina \r\nAmerican-style steak dishes is in a great atmosphere at Captain's Inn on the marina boardwalk. \r\n",
-        "offerCheck": "",
-        "offerTitle": "0",
-        "offerDescription": "0",
-        "wifiCheck": "",
-        "visaCheck": "",
-        "diningCheck": "",
-        "elgounaVoice": "",
-        "email": "",
-        "phoneNumber": "",
-        "info": "",
-        "facebookLink": "",
-        "twitterLink": "",
-        "instagramLink": "",
-        "youtubeLink": "",
-        "order": 2,
-        "merchantId": "",
-        "secureHash": "",
-        "category": "",
-        "priceType": "Low",
-        "popularity": "Low",
-        "locationType": "",
-        "placeType": "Beach Front",
-        "images": [
-          "images/venues/87_8--Athena-Greek-Taverna.JPG",
-          "images/venues/87_8--Athena-Greek-Taverna.JPG"
-        ]
-      }
-    ]
+    "data": {
+      "id": 37,
+      "name": "Captain's Steakhouse",
+      "type": "Restaurant",
+      "location": "Abu Tig",
+      "longitude": "33.674181",
+      "latitude": "27.408594",
+      "review": "",
+      "rating": "",
+      "description": "ext 144 / American Steaks / Abu Tig Marina \r\nAmerican-style steak dishes is in a great atmosphere at Captain's Inn on the marina boardwalk. \r\n",
+      "offerCheck": "",
+      "offerTitle": "0",
+      "offerDescription": "0",
+      "wifiCheck": "",
+      "visaCheck": "",
+      "diningCheck": "",
+      "elgounaVoice": "",
+      "email": "",
+      "phoneNumber": "",
+      "info": "",
+      "facebookLink": "",
+      "twitterLink": "",
+      "instagramLink": "",
+      "youtubeLink": "",
+      "order": 2,
+      "merchantId": "",
+      "secureHash": "",
+      "category": "Restaurant",
+      "priceType": 0,
+      "popularity": 0,
+      "ratingType": 0,
+      "cleanliness": 0,
+      "taste": 0,
+      "locationType": "",
+      "placeType": "Beach Front",
+      "images": [
+        "images/venues/87_8--Athena-Greek-Taverna.JPG",
+        "images/venues/87_8--Athena-Greek-Taverna.JPG"
+      ]
+    }
   }
 
 sample_error: |
