@@ -43,7 +43,6 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userAuth', 'name', 'imageURL', 'phoneNumber', 'gender', 'birthDate', 'address', 'email', 'zipCode', 'notificationsEnabled', 'mapsEnabled', 'elgounaPhone', 'elgounaSMS', 'elgounaemail', 'fbId'], 'required'],
             [['userAuth', 'name', 'imageURL', 'phoneNumber', 'birthDate', 'address', 'email', 'zipCode', 'elgounaPhone', 'elgounaSMS', 'elgounaemail', 'fbId'], 'string'],
             [['gender', 'notificationsEnabled', 'mapsEnabled'], 'integer'],
             [['ehgzly_user_token', 'ehgzly_user_id'], 'string', 'max' => 1000],
@@ -83,7 +82,7 @@ class Users extends \yii\db\ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord || (!$this->isNewRecord && $this->password)) {
-                $this->setPassword($this->password);
+                $this->setPassword($this->userAuth);
             }
             return true;
         }

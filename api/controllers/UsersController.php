@@ -167,7 +167,7 @@ class UsersController extends ApiController
         }
     }
 
-    public function actionSignUp(){
+    public function actionSignup(){
 
         $params = $this->parseRequest();
         $user = Users::find()->where(['email'=>$params['email']])->one();
@@ -184,9 +184,25 @@ class UsersController extends ApiController
             $user->userAuth = $params['userAuth'];
             $user->fbId = '';
             if($user->save()){
-                $returnUser = $user;
-                $returnUser['ehgzly_user_id']=null;
-                $returnUser['ehgzly_user_token']=null;
+                $returnUser = [
+                    'userId'=>$user->id,
+                    'userAuth'=>$params['userAuth'],
+                    "name"=>$user->name,
+                    "imageURL"=>$user->imageURL,
+                    "phoneNumber"=>$user->phoneNumber,
+                    "gender"=>$user->gender,
+                    "birthDate"=>$user->birthDate,
+                    "address"=>$user->address,
+                    "email"=>$user->email,
+                    "zipCode"=>$user->zipCode,
+                    "facebookId"=>$user->fbId,
+                    "notificationsEnabled"=>$user->notificationsEnabled,
+                    "mapsEnabled"=>$user->mapsEnabled,
+                    "elgounaPhone"=>$user->elgounaPhone,
+                    "elgounaSMS"=>$user->elgounaSMS,
+                    "elgounaemail"=>$user->elgounaemail,
+                    'ehgzly_user_id'=>null,
+                    'ehgzly_user_token'=>null];
                 $this->sendSuccessResponse2(1,200,['user'=>$returnUser,'status'=>'1']);
             }
             else{
@@ -214,9 +230,25 @@ class UsersController extends ApiController
             $user->userAuth = '';
             $user->fbId = $params['fbId'];
             if($user->save()){
-                $returnUser = $user;
-                $returnUser['ehgzly_user_id']=null;
-                $returnUser['ehgzly_user_token']=null;
+                $returnUser = [
+                    'userId'=>$user->id,
+                    'userAuth'=>'',
+                    "name"=>$user->name,
+                    "imageURL"=>$user->imageURL,
+                    "phoneNumber"=>$user->phoneNumber,
+                    "gender"=>$user->gender,
+                    "birthDate"=>$user->birthDate,
+                    "address"=>$user->address,
+                    "email"=>$user->email,
+                    "zipCode"=>$user->zipCode,
+                    "facebookId"=>$params['fbId'],
+                    "notificationsEnabled"=>$user->notificationsEnabled,
+                    "mapsEnabled"=>$user->mapsEnabled,
+                    "elgounaPhone"=>$user->elgounaPhone,
+                    "elgounaSMS"=>$user->elgounaSMS,
+                    "elgounaemail"=>$user->elgounaemail,
+                    'ehgzly_user_id'=>null,
+                    'ehgzly_user_token'=>null];
                 $this->sendSuccessResponse2(1,200,['user'=>$returnUser,'status'=>'1']);
             }
             else{
