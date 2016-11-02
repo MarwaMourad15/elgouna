@@ -7,6 +7,7 @@ use backend\models\Settings;
 use Yii;
 use yii\filters\VerbFilter;
 use backend\models\Contact;
+use backend\models\Transportation;
 
 /**
  * Class SettingController
@@ -30,10 +31,26 @@ class SettingController extends ApiController {
 								],
 								'contact' => [ 
 										'post' 
+								],
+								'get-trans-types' => [ 
+										'get' 
 								] 
 						] 
 				] 
 		];
+	}
+	public function actionGetTransTypes() {
+		$all = [ ];
+		$transTypes = Transportation::find ()->all ();
+		foreach ( $transTypes as $transType ) {
+			$transTypeObj = new \stdClass ();
+			$transTypeObj->id = $transType->id;
+			$transTypeObj->type = $transType->type;
+			$transTypeObj->description = $transType->description;
+			$transTypeObj->img = $transType->img;
+			$all [] = $transTypeObj;
+		}
+		$this->sendSuccessResponse2 ( 1, 200, $all );
 	}
 	public function actionContact() {
 		$params = $this->parseRequest ();
