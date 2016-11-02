@@ -58,7 +58,8 @@ class HotelController extends ApiController {
 			$all ['reviews'] = [ ];
 			if ($params ['lastId'] == 0) {
 				$hotel = Hotels::find ()->where ( [ 
-						'id' => $params ['hotelId'] 
+						'id' => $params ['hotelId'],
+						'hidden' => 1 
 				] )->one ();
 				if ($hotel->id != 0) {
 					$reviewsData = file_get_contents ( 'http://connect.reviewpro.com/v1/lodging/review/published?pid=' . $hotel->id . '&api_key=3xr4g6us6xmf5xq6abz84kbh5u3b9vght2xa29pd&sig=b396f6a3bb4e98c9ebe1e56e6518afa40700344456937ea1d21d6c142507ec3e' );
@@ -140,7 +141,6 @@ class HotelController extends ApiController {
 	}
 	public function actionSubmitReview() {
 		$all = [ ];
-		
 		$params = $this->parseRequest ();
 		if (isset ( $params ['userId'] ) && isset ( $params ['hotelId'] ) && isset ( $params ['rating'] ) && isset ( $params ['review'] )) {
 			$currentDate = date ( "Y-m-d H:i:s" );
@@ -174,7 +174,9 @@ class HotelController extends ApiController {
 	public function actionHotelFilter() {
 		$params = $this->parseRequest ();
 		if (isset ( $params ['lastId'] )) {
-			$hotels = Hotels::find ();
+			$hotels = Hotels::find ()->where ( [ 
+					'hidden' => 1 
+			] );
 			if ($params ['keyword'] != "") {
 				$hotels->andWhere ( [ 
 						'like',
@@ -296,12 +298,14 @@ class HotelController extends ApiController {
 	public function actionListHotels() {
 		$params = $this->parseRequest ();
 		if (isset ( $params ['lastId'] )) {
-			$query = Hotels::find ()->limit ( 20 );
+			$query = Hotels::find ()->where ( [ 
+					'hidden' => 1 
+			] )->limit ( 20 );
 			$query->offset ( $params ['lastId'] );
 			
 			$hotelFilter = null;
 			if ($params ['filterId'] != "") {
-				$hotelFilter = HotelFilter::find ()->where ( [ 
+				$hotelFilter = HotelFilter::find ()->andWhere ( [ 
 						'id' => $params ['filterId'] 
 				] )->one ();
 			}
