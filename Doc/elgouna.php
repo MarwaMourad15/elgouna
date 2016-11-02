@@ -10,7 +10,7 @@ if(!file_exists("settings.ini")) {
         printf("{yaml.index} key is not defined in settings. Aborting");
         exit ;
     }
-	
+	$ehgizly_yaml = "ehgizly.yaml";
     $weather_yaml = "weather.yaml";
     $hotel_yaml = "hotel.yaml";
     $dinings_yaml = "dinings.yaml";
@@ -29,6 +29,7 @@ if(!file_exists("settings.ini")) {
     $brand_name = array_key_exists("brand.name",$settings) ? $settings["brand.name"] : ""  ;
     $api_version = array_key_exists("api.version",$settings) ? $settings["api.version"] : "v1.0"  ;
     $detail_url = "detail.php?token=" ;
+    $ehgizly = Spyc::YAMLLoad($ehgizly_yaml);
     $weather = Spyc::YAMLLoad($weather_yaml);
     $hotel = Spyc::YAMLLoad($hotel_yaml);
     $dinings = Spyc::YAMLLoad($dinings_yaml);
@@ -102,6 +103,33 @@ if(!file_exists("settings.ini")) {
 
                     <tbody>
                     <?php foreach($weather as $api ) {
+						$token = "#" ;
+						if(array_key_exists("file_name",$api)){ $token = base64_encode($api["file_name"]); }
+						$api_url = $detail_url.$token ; ?>
+                    <tr>
+                        <td><a href="<?php echo $api_url?>"><b><?php echo $api["name"] ?> </b></a></td>
+                        <td><?php echo $api["description"] ?> </td>
+                    </tr>
+
+                    <?php } ?>
+                    </tbody>
+
+                </table>
+                <br>
+                </hr>
+                
+                	<h3>Ehgizly</h3>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Description</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+                    <?php foreach($ehgizly as $api ) {
 						$token = "#" ;
 						if(array_key_exists("file_name",$api)){ $token = base64_encode($api["file_name"]); }
 						$api_url = $detail_url.$token ; ?>

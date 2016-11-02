@@ -9,11 +9,11 @@ use backend\models\AppConfig;
 use backend\models\Users;
 
 /**
- * Class VenueController
+ * Class EhgizlyController
  *
  * @package api\controllers
  */
-class DiningController extends ApiController {
+class EhgizlyController extends ApiController {
 	public function behaviors() {
 		return [ 
 				'verbs' => [ 
@@ -21,41 +21,10 @@ class DiningController extends ApiController {
 						'actions' => [ 
 								'event-list' => [ 
 										'post' 
-								],
-								'update-order-status' => [ 
-										'post' 
 								] 
 						] 
 				] 
 		];
-	}
-	public function actionUpdateOrderStatus() {
-		$params = $this->parseRequest ();
-		if (isset ( $params ['userId'] ) && isset ( $params ['OrderId'] )) {
-			$all = [ ];
-			$user = Users::find ()->where ( [ 
-					'id' => $params ['userId'] 
-			] )->one ();
-			$all ['user'] = [ 
-					'accessToken' => $user->ehgzly_user_token 
-			];
-			$header = [ 
-					'appToken' => getAppToken (),
-					'Content-Type' => 'application/json',
-					'accessToken' => $user->ehgzly_user_token 
-			];
-			$params2 = [ 
-					"OrderId" => $params ['OrderId'] 
-			];
-			$response = $this->CallCurl ( 'http://e7gezly.cloudapp.net/api/order/ChangeOrderStatus', 'post', $params2, $header );
-			$order = new \stdClass ();
-			$order->referenceCode = "{$response->body->refrenceCode}";
-			$order->totalPayments = "{$response->body->totalPayments}";
-			$order->orderStatus = "{$response->body->OrderStatus}";
-			$order->orderStatusId = "qwertyufghjnmcvbnmgthj";
-			$this->sendSuccessResponse2 ( 1, 200, $order );
-		} else
-			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );
 	}
 	public function actionEventList() {
 		$params = $this->parseRequest ();
@@ -71,25 +40,26 @@ class DiningController extends ApiController {
 					'appToken' => $this->getAppToken () 
 			];
 			$response = $this->CallCurl ( "http://e7gezly.cloudapp.net/api/event/GetAllEvents", 'post', $params, $header );
-			for($i = 0; $i < sizeof ( $response->body ); $i ++) {
+			
+			for($i = 0; $i < sizeof ( $response ); $i ++) {
 				$categories = [ ];
 				$links = [ ];
 				$event = new \stdClass ();
-				$event->id = "{$response->body[$i]->EventId}";
-				$event->title = "{$response->body[$i]->EventTitle}";
-				$event->description = "{$response->body[$i]->EventDescreption}";
-				$event->phone = "{$response->body[$i]->EventPhoneNumber}";
-				$event->longitude = "{$response->body[$i]->Eventlongtiude}";
-				$event->latitude = "{$response->body[$i]->EventLatitude}";
-				$event->startdate = "{$response->body[$i]->EventStartDate}";
-				$event->enddate = "{$response->body[$i]->EventEndDate}";
-				$event->eventLocation = "{$response->body[$i]->EventLocation}";
-				$event->mainPhotoUrl = "{$response->body[$i]->EventImageUrl}";
-				$event->siteUrl = "{$response->body[$i]->SiteUrl}";
-				$event->facebookLink = "{$response->body[$i]->OtherLinks[0]}";
-				$event->twitterLink = "{$response->body[$i]->OtherLinks[1]}";
-				$event->instagramLink = "{$response->body[$i]->OtherLinks[2]}";
-				if (sizeof ( $response->body [$i]->EventCategory ) != 0) {
+				$event->id = $response [$i] ['EventId'];
+				$event->title = $response [$i] ['EventTitle'];
+				$event->description = $response [$i] ['EventDescreption'];
+				$event->phone = $response [$i] ['EventPhoneNumber'];
+				$event->longitude = $response [$i] ['Eventlongtiude'];
+				$event->latitude = $response [$i] ['EventLatitude'];
+				$event->startdate = $response [$i] ['EventStartDate'];
+				$event->enddate = $response [$i] ['EventEndDate'];
+				$event->eventLocation = $response [$i] ['EventLocation'];
+				$event->mainPhotoUrl = $response [$i] ['EventImageUrl'];
+				$event->siteUrl = $response [$i] ['SiteUrl'];
+				$event->facebookLink = $response [$i] ['OtherLinks'] [0];
+				$event->twitterLink = $response [$i] ['OtherLinks'] [1];
+				$event->instagramLink = $response [$i] ['OtherLinks'] [2];
+				if (sizeof ( $response [$i] ['EventCategory'] ) != 0) {
 					$event->isFree = false;
 				} else {
 					$event->isFree = true;
@@ -97,12 +67,12 @@ class DiningController extends ApiController {
 				// $event->PageSize = 5;
 				// $event->PageNumber = $obj->PageNumber;
 				// $event->OrderBy = "EventTitle";
-				for($j = 0; $j < sizeof ( $response->body [$i]->EventCategory ); $j ++) {
+				for($j = 0; $j < sizeof ( $response [$i] ['EventCategory'] ); $j ++) {
 					$category = new \stdClass ();
-					$category->id = "{$response->body[$i]->EventCategory[$j]->CategoryId}";
-					$category->name = "{$response->body[$i]->EventCategory[$j]->CategoryName}";
-					$category->price = $response->body [$i]->EventCategory [$j]->CategoryPrice;
-					$category->numberOfTickets = $response->body [$i]->EventCategory [$j]->NumberOfTickets;
+					$category->id = $response [$i] ['EventCategory'] [$j] ['CategoryId'];
+					$category->name = $response [$i] ['EventCategory'] [$j] ['CategoryName'];
+					$category->price = $response [$i] ['EventCategory'] [$j] ['CategoryPrice'];
+					$category->numberOfTickets = $response [$i] ['EventCategory'] [$j] ['NumberOfTickets'];
 					$categories [$j] = $category;
 				}
 				$event->categories = $categories;
@@ -163,14 +133,6 @@ class DiningController extends ApiController {
 			$curl->setOption ( CURLOPT_HEADER, http_build_query ( $header ) );
 			$response = $curl->setOption ( CURLOPT_POSTFIELDS, http_build_query ( $params ) )->post ( $url );
 		}
-		
-		/*
-		 * if($response->error)
-		 * {
-		 * print_r($response->error);
-		 * die;
-		 * }
-		 */
 		return json_decode ( $response, true );
 	}
 }

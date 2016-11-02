@@ -28,7 +28,7 @@ class WeatherController extends ApiController {
 	public function actionGetWeatherForecast() {
 		date_default_timezone_set ( 'Africa/Cairo' );
 		$currentDate = date ( "Y-m-d H:i:s" );
-		$todayWeather = null;
+		$todayWeatherId = 0;
 		$lastWeather = Weather::find ()->orderBy ( 'id desc' )->limit ( 1 )->one ();
 		$timeFirst = strtotime ( $lastWeather->date );
 		$timeSecond = strtotime ( $currentDate );
@@ -45,6 +45,7 @@ class WeatherController extends ApiController {
 					$weatherDesc = $o->value;
 					break;
 				}
+				
 				$newWeather->date = $currentDate;
 				$newWeather->cloudCover = $x->cloudcover;
 				$newWeather->feelsLike = $x->FeelsLikeC;
@@ -52,7 +53,6 @@ class WeatherController extends ApiController {
 				$newWeather->pressure = $x->pressure;
 				$newWeather->temperature = $x->temp_C;
 				$newWeather->weatherDesc = $weatherDesc;
-				$newWeather->save();
 			}
 			foreach ( $weather->data->weather as $k => $v ) {
 				$rr ++;
@@ -73,7 +73,8 @@ class WeatherController extends ApiController {
 						$newWeather->chanceofFog = $n->chanceoffog;
 						break;
 					}
-					$newWeather->update();
+					$newWeather->save ();
+					$todayWeatherId = $newWeather->id;
 				} else {
 					
 					$count ++;
@@ -92,14 +93,31 @@ class WeatherController extends ApiController {
 					$newWeatherDay->save ();
 				}
 			}
-			$todayWeather = $newWeather;
 		} else {
-			$todayWeather = $lastWeather;
+			$todayWeatherId = $lastWeather->id;
 		}
-		
-		$json ['todaysWeather'] = $todayWeather;
+		$todayWeather = Weather::find ()->where ( [ 
+				'id' => $todayWeatherId 
+		] )->one ();
+		$todayWeatherObj = new \stdClass ();
+		$todayWeatherObj->cloudCover = $todayWeather->cloudCover;
+		$todayWeatherObj->feelsLike = $todayWeather->feelsLike;
+		$todayWeatherObj->humidity = $todayWeather->humidity;
+		$todayWeatherObj->pressure = $todayWeather->pressure;
+		$todayWeatherObj->temperature = $todayWeather->temperature;
+		$todayWeatherObj->windDirection = $todayWeather->windDirection;
+		$todayWeatherObj->windSpeed = $todayWeather->windSpeed;
+		$todayWeatherObj->high = $todayWeather->high;
+		$todayWeatherObj->low = $todayWeather->low;
+		$todayWeatherObj->weatherDesc = $todayWeather->weatherDesc;
+		$todayWeatherObj->chanceofFog = $todayWeather->chanceofFog;
+		$todayWeatherObj->chanceOfRain = $todayWeather->chanceOfRain;
+		$todayWeatherObj->chanceOfSnow = $todayWeather->chanceOfSnow;
+		$todayWeatherObj->sunrise = $todayWeather->sunrise;
+		$todayWeatherObj->sunset = $todayWeather->sunset;
+		$json ['todaysWeather'] = $todayWeatherObj;
 		$weatherDays = WeatherDays::find ()->where ( [ 
-				'w_id' => $todayWeather->id 
+				'w_id' => $todayWeatherId 
 		] )->all ();
 		foreach ( $weatherDays as $weatherDay ) {
 			$day = new \stdClass ();

@@ -19,25 +19,41 @@ sample_request: |
 sample_response: |
 
   {
-    "todaysWeather": {},
+    "todaysWeather": {
+        "cloudCover": "0",
+        "feelsLike": "25",
+        "humidity": "41",
+        "pressure": "1017",
+        "temperature": "25",
+        "windDirection": "NW",
+        "windSpeed": "30",
+        "high": "27",
+        "low": "20",
+        "weatherDesc": "Sunny",
+        "chanceofFog": "0",
+        "chanceOfRain": "0",
+        "chanceOfSnow": "0",
+        "sunrise": "05:57 AM",
+        "sunset": "05:01 PM"
+    },
     "wholeWeekWeatherForcast": [
-        {
-            "dayName": "Wed",
-            "temp": "28",
-            "weatherDesc": "Clear"
-        },
         {
             "dayName": "Thu",
             "temp": "28",
-            "weatherDesc": "Partly cloudy"
+            "weatherDesc": "Cloudy"
         },
         {
             "dayName": "Fri",
-            "temp": "29",
+            "temp": "28",
             "weatherDesc": "Clear"
         },
         {
             "dayName": "Sat",
+            "temp": "28",
+            "weatherDesc": "Cloudy"
+        },
+        {
+            "dayName": "Sun",
             "temp": "28",
             "weatherDesc": "Clear"
         }
