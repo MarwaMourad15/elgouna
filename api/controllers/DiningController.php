@@ -128,6 +128,28 @@ class DiningController extends ApiController {
                 ]);
             }
 
+            if (isset ($params ['taste']) && ($params ['taste'] != '')) {
+                $taste = $params ['taste'];
+                $query->andWhere([
+                    'taste' => $taste
+                ]);
+            }
+
+            if (isset ($params ['cleanliness']) && ($params ['cleanliness'] != '')) {
+                $cleanliness = $params ['cleanliness'];
+                $query->andWhere([
+                    'cleanliness' => $cleanliness
+                ]);
+            }
+
+            if (isset ($params ['rating']) && ($params ['rating'] != '')) {
+                $rating = $params ['rating'];
+                $query->andWhere([
+                    'rating' => $rating
+                ]);
+            }
+
+
             $all = array();
             $venues = $query
                 ->limit($limit)
@@ -192,11 +214,14 @@ class DiningController extends ApiController {
                     "category" => $this->stringVal($venue->category ['title']),
                     "priceType" => $this->stringVal($venue->getTypeList() [$venue->price_type]),
                     "popularity" => $this->stringVal($venue->getTypeList() [$venue->popularity]),
+                    "ratingType" => $this->stringVal($venue->getTypeList() [$venue->rating]),
+                    "cleanliness" => $this->stringVal($venue->getTypeList() [$venue->cleanliness]),
+                    "taste" => $this->stringVal($venue->getTypeList() [$venue->taste]),
                     "locationType" => $this->stringVal($venue->locationType ['title']),
                     "placeType" => $this->stringVal($venue->getPlaceType() [$venue->place_type]),
                     "images" => $images
                 ];
-                $all[] = $response;
+                $all = $response;
 
             $this->sendSuccessResponse(1, 200, $all);
         }

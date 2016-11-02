@@ -62,6 +62,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'location_id',
             'place_type',
             'category_type',
+            'taste',
+            'cleanliness',
+            'rating',
         ],
     ]) ?>
 

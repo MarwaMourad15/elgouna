@@ -41,7 +41,11 @@ use Yii;
  * @property integer $location_id
  * @property integer $place_type
  * @property integer $category_type
+ * @property integer $taste
+ * @property integer $cleanliness
+ * @property integer $rating
  *
+ * @property Orders[] $orders
  * @property VenuesImg[] $venuesImgs
  */
 class Venues extends \yii\db\ActiveRecord
@@ -77,7 +81,7 @@ class Venues extends \yii\db\ActiveRecord
         return [
             [['venueUsername', 'venuePass', 'name', 'type', 'location', 'reviewScore', 'ratingStar', 'offerCheck', 'wifiCheck', 'visaCheck', 'diningCheck', 'elgounaVoice', 'email', 'phoneNumber', 'info', 'facebookLink', 'twitterLink', 'instagramLink', 'youtubeLink', 'ord', 'secure_hash'], 'required'],
             [['reviewScore'], 'number'],
-            [['ratingStar', 'offerCheck', 'wifiCheck', 'visaCheck', 'diningCheck', 'ord', 'category_id', 'price_type', 'popularity', 'location_id', 'place_type', 'category_type'], 'integer'],
+            [['ratingStar', 'offerCheck', 'wifiCheck', 'visaCheck', 'diningCheck', 'ord', 'category_id', 'price_type', 'popularity', 'location_id', 'place_type', 'category_type', 'taste', 'cleanliness', 'rating'], 'integer'],
             [['description'], 'string'],
             [['venueUsername', 'elgounaVoice', 'phoneNumber'], 'string', 'max' => 50],
             [['venuePass', 'name', 'email', 'info', 'secure_hash'], 'string', 'max' => 100],
@@ -126,6 +130,9 @@ class Venues extends \yii\db\ActiveRecord
             'location_id' => Yii::t('app', 'Location ID'),
             'place_type' => Yii::t('app', 'Place Type'),
             'category_type' => Yii::t('app', 'Category Type'),
+            'taste' => Yii::t('app', 'Taste'),
+            'cleanliness' => Yii::t('app', 'Cleanliness'),
+            'rating' => Yii::t('app', 'Rating'),
         ];
     }
 
@@ -162,6 +169,15 @@ class Venues extends \yii\db\ActiveRecord
             self::BEACHFRONT => 'Beach Front',
             self::MARINAFRONT=>'Marina Front',
         );
+    }
+
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrders()
+    {
+        return $this->hasMany(Orders::className(), ['venue_id' => 'id']);
     }
 
 }

@@ -204,11 +204,11 @@ class ApiController extends Controller
 
     protected function sendSuccessResponse($status = 1 , $status_header = 200 , $data = [])
     {
-        if(empty($data))
+        /*if(empty($data))
         {
             echo json_encode(array('status'=>intval($status)),JSON_PRETTY_PRINT);
             exit;
-        }
+        }*/
         $this->setHeader($status_header);
         //print_r($data);die;
         echo json_encode(array('status'=>intval($status) ,'data'=>($data)),JSON_PRETTY_PRINT);

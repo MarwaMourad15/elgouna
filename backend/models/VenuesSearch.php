@@ -18,7 +18,7 @@ class VenuesSearch extends Venues
     public function rules()
     {
         return [
-            [['id', 'ratingStar', 'offerCheck', 'wifiCheck', 'visaCheck', 'diningCheck', 'ord', 'category_id', 'price_type', 'popularity', 'location_id', 'place_type', 'category_type'], 'integer'],
+            [['id', 'ratingStar', 'offerCheck', 'wifiCheck', 'visaCheck', 'diningCheck', 'ord', 'category_id', 'price_type', 'popularity', 'location_id', 'place_type', 'category_type', 'taste', 'cleanliness', 'rating'], 'integer'],
             [['venueUsername', 'venuePass', 'name', 'type', 'location', 'longitude', 'latitude', 'description', 'offerTitle', 'offerDescription', 'elgounaVoice', 'email', 'phoneNumber', 'info', 'facebookLink', 'twitterLink', 'instagramLink', 'youtubeLink', 'merchant_id', 'secure_hash'], 'safe'],
             [['reviewScore'], 'number'],
         ];
@@ -74,6 +74,9 @@ class VenuesSearch extends Venues
             'location_id' => $this->location_id,
             'place_type' => $this->place_type,
             'category_type' => $this->category_type,
+            'taste' => $this->taste,
+            'cleanliness' => $this->cleanliness,
+            'rating' => $this->rating,
         ]);
 
         $query->andFilterWhere(['like', 'venueUsername', $this->venueUsername])

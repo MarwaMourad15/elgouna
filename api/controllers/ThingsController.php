@@ -120,6 +120,7 @@ class ThingsController extends ApiController
                 ->orderBy(['ord' => SORT_ASC])->all();
 
             //print_r($query);die;
+
             foreach ($beaches as $row) {
                 $count++;
 
