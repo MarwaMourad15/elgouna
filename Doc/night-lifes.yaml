@@ -14,9 +14,3 @@ api2 :
     description : >
         API to get All Items for Night life with filteration.
     file_name : "yaml/list-night-lifes.yaml"
-
-api3 :
-    name : "night-life/get-night-details"
-    description : >
-
-    file_name : "yaml/get-night-details.yaml"
