@@ -81,7 +81,7 @@ class Users extends \yii\db\ActiveRecord
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
-            if ($this->isNewRecord || (!$this->isNewRecord && $this->password)) {
+            if ($this->isNewRecord || (!$this->isNewRecord && $this->userAuth)) {
                 $this->setPassword($this->userAuth);
             }
             return true;
@@ -94,7 +94,7 @@ class Users extends \yii\db\ActiveRecord
         $this->userAuth = Yii::$app->security->generatePasswordHash($password);
     }
 
-    protected function validatePassword ($password){
+    public function validatePassword ($password){
         return Yii::$app->security->validatePassword($password, $this->userAuth);
     }
 
@@ -105,7 +105,7 @@ class Users extends \yii\db\ActiveRecord
             <div class="content" style="padding-bottom: 30px;padding-top: 30px;padding-left: 2%">
                 <h2 style="color: #2d2d2d; font-weight: 600;">Hi <span>Member</span>!</h2>
                 <p style="color: #545151;">
-                    Hello <span>'.$this->fullName.'</span>, You Recently Requested To Reset Your Password For Your EL Gouna Account.
+                    Hello <span>'.$this->name.'</span>, You Recently Requested To Reset Your Password For Your EL Gouna Account.
                     <br>
                         Click The Button Below To Reset It
                     <br>

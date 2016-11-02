@@ -108,18 +108,40 @@ class UsersController extends ApiController
             $facebookID = $params['fbId'];
             $user = Users::find()->where(['fbId' => $facebookID])->one();
             if($user){
-                $returnUser = $user;
+                // $returnUser = $user;
                 $imgUrl = "https://graph.facebook.com/" . $user['fbId']
                     . "/picture?type=large";
-                $returnUser['imageURL']=$imgUrl;
-                $returnUser['ehgzly_user_token']= null;
+                $returnUser['imageURL'] = $imgUrl;
+                $returnUser['ehgzly_user_token'] = null;
                 $returnUser['ehgzly_user_id'] = null;
                 $userCards = array();
                 $registeredUserCards = UserCard::find()->where(['user_id'=>$user->id])->all();
                 foreach ($registeredUserCards as $registeredUserCard){
                     array_push($userCards,$registeredUserCard);
                 }
-                $returnUser['cards'] = $userCards;
+                //$returnUser['cards'] = $userCards;
+                $returnUser = [
+                    'userId'=>$user->id,
+                    'userAuth'=>'',
+                    "name"=>$user->name,
+                    "imageURL"=>$user->imageURL,
+                    "phoneNumber"=>$user->phoneNumber,
+                    "gender"=>$user->gender,
+                    "birthDate"=>$user->birthDate,
+                    "address"=>$user->address,
+                    "email"=>$user->email,
+                    "zipCode"=>$user->zipCode,
+                    "facebookId"=>$user->fbId,
+                    "notificationsEnabled"=>$user->notificationsEnabled,
+                    "mapsEnabled"=>$user->mapsEnabled,
+                    "elgounaPhone"=>$user->elgounaPhone,
+                    "elgounaSMS"=>$user->elgounaSMS,
+                    "elgounaemail"=>$user->elgounaemail,
+                    'ehgzly_user_id'=>null,
+                    'ehgzly_user_token'=>null,
+                    'cards'=>$userCards
+
+                ];
                 $this->sendSuccessResponse2(1,200,['status'=>'0','userExists'=>'1','user'=>$returnUser]);
             }
             else{
@@ -139,7 +161,7 @@ class UsersController extends ApiController
             $user = Users::find()->where(['email' => $email])->one();
             if($user){
                 if($user->validatePassword($params['userAuth'])) {
-                    $returnUser = $user;
+                   // $returnUser = $user;
                     $imgUrl = "https://graph.facebook.com/" . $user['fbId']
                         . "/picture?type=large";
                     $returnUser['imageURL'] = $imgUrl;
@@ -150,7 +172,29 @@ class UsersController extends ApiController
                     foreach ($registeredUserCards as $registeredUserCard){
                         array_push($userCards,$registeredUserCard);
                     }
-                    $returnUser['cards'] = $userCards;
+                    //$returnUser['cards'] = $userCards;
+                    $returnUser = [
+                        'userId'=>$user->id,
+                        'userAuth'=>'',
+                        "name"=>$user->name,
+                        "imageURL"=>$user->imageURL,
+                        "phoneNumber"=>$user->phoneNumber,
+                        "gender"=>$user->gender,
+                        "birthDate"=>$user->birthDate,
+                        "address"=>$user->address,
+                        "email"=>$user->email,
+                        "zipCode"=>$user->zipCode,
+                        "facebookId"=>$user->fbId,
+                        "notificationsEnabled"=>$user->notificationsEnabled,
+                        "mapsEnabled"=>$user->mapsEnabled,
+                        "elgounaPhone"=>$user->elgounaPhone,
+                        "elgounaSMS"=>$user->elgounaSMS,
+                        "elgounaemail"=>$user->elgounaemail,
+                        'ehgzly_user_id'=>null,
+                        'ehgzly_user_token'=>null,
+                        'cards'=>$userCards
+
+                    ];
                     $this->sendSuccessResponse2(1, 200, ['status' => '1', 'userExists' => 1, 'user' => $returnUser]);
                 }
                 else{
@@ -330,18 +374,16 @@ class UsersController extends ApiController
         $params = $this->parseRequest();
     }
 
-    public function actionGetUsersPayments(){
+    public function actionGetUserPayments(){
 
         $params = $this->parseRequest();
         $returnPayments = array();
         if(isset($params['user_id'])){
             $user = Users::find()->where(['id'=>$params['user_id']])->one();
             if($user){
-                $payments = Payments::findBySql('select `payments`.*, `orders`.`order_code` "
-                    . "from `payments` join `orders` "
-                    . "on `payments`.`order_id` = `orders`.`id` "
-                    . "where `payments`.`user_id` = \'$user->id\' "
-                    . "order by `payments`.`payment_date` desc"')->all();
+                $payments = Payments::findBySql('select `payments`.*, `orders`.`order_code` from `payments` join `orders` on
+`payments`.`order_id` = `orders`.`id` where `payments`.`user_id` = \''.$user->id.'\' order by `payments`.`payment_date` desc '
+                )->all();
                 if($payments){
                     if(count($payments)>0){
                         foreach ($payments as $payment){
@@ -355,7 +397,7 @@ class UsersController extends ApiController
                     }
                 }
                 else{
-                    $returnPayments['mysql_message'] = 'Error';
+                    $returnPayments['message'] = 'No payments for this user.';
                     $this->sendSuccessResponse2(1,200,$returnPayments);
                 }
             }
@@ -378,7 +420,7 @@ class UsersController extends ApiController
             $img = $params['file'];
             $img = str_replace(' ', '+', (str_replace('data:image/png;base64,', '', $img)));
             $data = base64_decode($img);
-            $dir = __DIR__ .'\\uploads\\images\\users\\';
+            $dir = __DIR__ .'\\images\\users\\';
             $dir = preg_replace('/\\\\/', '/', $dir);
             //print_r();
             $dir = str_replace('/api/controllers','',$dir);
@@ -386,7 +428,7 @@ class UsersController extends ApiController
             //Relative path to the directory
             $path = 'http://'
                 . $_SERVER['HTTP_HOST']
-                . 'uploads/images/users/';
+                . 'images/users/';
             $file = $dir . $params['userId'] . '.png';
             $upload_attempt = file_put_contents($file, $data);
             if(!$upload_attempt) {
