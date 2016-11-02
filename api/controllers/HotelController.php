@@ -174,22 +174,24 @@ class HotelController extends ApiController {
 	public function actionHotelFilter() {
 		$params = $this->parseRequest ();
 		if (isset ( $params ['lastId'] )) {
+			$all = [ ];
+			$all ['hotels'] = [ ];
 			$hotels = Hotels::find ()->where ( [ 
 					'hidden' => 1 
 			] );
-			if ($params ['keyword'] != "") {
+			if (isset ( $params ['keyword'] ) && $params ['keyword'] != "") {
 				$hotels->andWhere ( [ 
 						'like',
 						'name',
 						$params ['keyword'] 
 				] );
 			}
-			if (isset ( $params ['ratingStar'] ) || $params ['ratingStar'] == '0') {
+			if (isset ( $params ['ratingStar'] ) && $params ['ratingStar'] != "" && intval ( $params ['ratingStar'] ) > 0) {
 				$hotels->andWhere ( [ 
-						'ratingStar' => $params ['ratingStar'] 
+						'ratingStar' => intval ( $params ['ratingStar'] ) 
 				] );
 			}
-			if ($params ['servicesIds'] != "") {
+			if (isset ( $params ['servicesIds'] ) && $params ['servicesIds'] != "") {
 				$hotelServices = ServicesHotel::find ()->where ( [ 
 						'service_id' => $params ['servicesIds'] 
 				] )->groupBy ( 'hotel_id' )->all ();
@@ -197,18 +199,17 @@ class HotelController extends ApiController {
 				foreach ( $hotelServices as $hotelService ) {
 					$ids [] = $hotelService->hotel_id;
 				}
-				if (count ( $ids ) > 0) {
+				if (sizeof ( $ids ) > 0) {
 					$hotels->andWhere ( [ 
 							'id' => $ids 
 					] );
 				}
 			}
-			$hotels->orderBy ( 'ord asc' );
+			$hotels = $hotels->orderBy ( 'ord asc' )->all ();
 			
 			$count = $params ['lastId'];
 			foreach ( $hotels as $hotel ) {
 				$isLiked = 0;
-				$all = [ ];
 				$rateRange = RateRange::find ()->Where ( [ 
 						'<=',
 						'start',
@@ -252,7 +253,6 @@ class HotelController extends ApiController {
 				}
 				$count ++;
 				$all ['hotels'] [] = [ 
-						"recordId" => $count,
 						"hotelId" => $hotel->id,
 						"name" => $hotel->name,
 						"location" => $hotel->location,

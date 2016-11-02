@@ -1,0 +1,10 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "ehgizly/event-list"
+    description : >
+        API to get All Items for hotels with filteration.
+    file_name : "yaml/ehgizly-event-list.yaml"

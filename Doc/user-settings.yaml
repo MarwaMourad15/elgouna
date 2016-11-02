@@ -15,3 +15,10 @@ api2 :
     description : >
        API to get the conent of the about page and other settings
     file_name : "yaml/page-setting.yaml"
+
+api3 :
+    name : "setting/contact"
+    description : >
+       API to send contact
+    file_name : "yaml/setting-contact.yaml"
+    

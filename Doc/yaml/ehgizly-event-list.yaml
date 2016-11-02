@@ -1,0 +1,88 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: POST
+resource: ehgizly/event-list
+resource_url: http://elgounaapp.com/elgouna/api/web/ehgizly/event-list
+description: >
+    API to get All events.
+parameters:
+    - name : PageNumber
+      description :  Page Number
+      optional : No
+      default : 0
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/ehgizly/event-list
+sample_request: |
+
+    {
+      "PageNumber": 0
+    }
+
+sample_response: |
+
+     [
+        {
+            "id": "0bc7a2d2-958c-40ca-aa3f-aac5e60c0bdf",
+            "title": "Downtown Festival",
+            "description": "Experience the oriental feel that is Egypt with traditional acts performing from different regions all over our great country, enjoy the pristine El Gouna Air as you seat yourself at one of our local restaurants trying out the delicacy of the food. Be part of this unique experience and immerse yourself in the shopping of our local bazars. \nTaking place every Thursday at Downtown (Tamr Henna Square) from 8PM (show and times subject to change) ",
+            "phone": "",
+            "longitude": "33.676400",
+            "latitude": "27.396406",
+            "startdate": "2016-08-18T20:00:00",
+            "enddate": "2016-10-28T23:00:00",
+            "eventLocation": "Tamr Henna Square Downtown  (kfr el gouna)",
+            "mainPhotoUrl": "https://i.imgur.com/aVt0n9kg.jpg",
+            "siteUrl": "",
+            "facebookLink": "",
+            "twitterLink": null,
+            "instagramLink": null,
+            "isFree": false,
+            "categories": [
+                {
+                    "id": "debd5826-e223-4049-a2ab-f63018c11853",
+                    "name": "Free",
+                    "price": 0,
+                    "numberOfTickets": 5000
+                }
+            ]
+        },
+        {
+            "id": "08350142-40c9-44f6-86fb-74e3016741a1",
+            "title": "Marina Street Festival",
+            "description": "Come and enjoy the festive atmosphere at EL Gouna's Marina Street Festival, enjoy the amazing acts taking place on our multiple stages while you dine in one of our fine restaurants overlooking the Abu Tig Marina. Witness the fiery street acts of acrobats, magicians and clowns in addition to the amazing fire performers. \nTaking place every Friday at the Abu Tig Marina from 7PM (show and times subject to change)",
+            "phone": "",
+            "longitude": "33.679101",
+            "latitude": "27.384974",
+            "startdate": "2016-08-19T19:00:00",
+            "enddate": "2016-10-28T23:00:00",
+            "eventLocation": "Abu Tig Marina",
+            "mainPhotoUrl": "https://i.imgur.com/OSvL6Dy.jpg",
+            "siteUrl": "",
+            "facebookLink": "",
+            "twitterLink": null,
+            "instagramLink": null,
+            "isFree": false,
+            "categories": [
+                {
+                    "id": "debd5826-e223-4049-a2ab-f63018c11853",
+                    "name": "Free",
+                    "price": 0,
+                    "numberOfTickets": 5000
+                }
+            ]
+        }
+    ]
+
+
+sample_error: |
+
+    {
+      "status": 0,
+      "error_code": 400,
+      "errors": "Invalid_Parameters"
+    }
