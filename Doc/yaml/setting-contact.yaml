@@ -1,0 +1,58 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: setting/contact
+resource_url: http://elgounaapp.com/elgouna/api/web/setting/contact
+description: >
+    API to send contact
+parameters:
+
+    - name : name
+      description :  name of sender
+      optional : No
+      default : "test"
+
+    - name : email
+      description :  email of sender
+      optional : No
+      default : "test@test.com"
+      
+    - name : phone
+      description :  phone of sender
+      optional : No
+      default : "000000"
+
+    - name : message
+      description :  message of contact us
+      optional : No
+      default : "TEST"
+      
+
+sample_url: http://elgounaapp.com/elgouna/api/web/setting/contact
+sample_request: |
+
+    {
+      "name": "TEST",
+      "email": "TESTEmail",
+      "phone": "0111111",    
+      "message": "TESTING"
+    }
+
+sample_response: |
+
+		{
+      "status": 1,
+      "msg": "mail delivered and stored."
+    }
+
+sample_error: |
+
+    {
+      "status": 0,
+      "error_code": 400,
+      "errors": "Invalid_Parameters"
+    }

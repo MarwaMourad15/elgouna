@@ -27,6 +27,9 @@ class SettingController extends ApiController {
 								],
 								'upload-photo' => [ 
 										'post' 
+								],
+								'contact' => [ 
+										'post' 
 								] 
 						] 
 				] 
@@ -163,7 +166,7 @@ class SettingController extends ApiController {
 			</td>
 			</tr>
 			</table>";
-		$headers = 'From: info@elgouna.com' . "\r\n" . 'Reply-To: info@elgouna.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion ();
+		$headers = 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n" . 'From: info@elgouna.com' . "\r\n" . 'Reply-To: info@elgouna.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion ();
 		
 		return mail ( $to, $subject, $message, $headers );
 	}
