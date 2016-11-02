@@ -78,4 +78,74 @@ class Users extends \yii\db\ActiveRecord
             'auth_reset_token' => Yii::t('app', 'Auth Reset Token'),
         ];
     }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord || (!$this->isNewRecord && $this->password)) {
+                $this->setPassword($this->password);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    protected function setPassword($password){
+
+        $this->userAuth = Yii::$app->security->generatePasswordHash($password);
+    }
+
+    protected function validatePassword ($password){
+        return Yii::$app->security->validatePassword($password, $this->userAuth);
+    }
+
+    public function sendResetPassowrd(){
+        $resetLink = $resetLink = 'http://elgounaapp.com/elgouna/frontend/web/site/reset-password?token=' . $this->auth_reset_token;
+        $message= '
+            <div class="container" style="width: 90%; background-color: #f2f2f2; margin: 0 auto;">
+            <div class="content" style="padding-bottom: 30px;padding-top: 30px;padding-left: 2%">
+                <h2 style="color: #2d2d2d; font-weight: 600;">Hi <span>Member</span>!</h2>
+                <p style="color: #545151;">
+                    Hello <span>'.$this->fullName.'</span>, You Recently Requested To Reset Your Password For Your EL Gouna Account.
+                    <br>
+                        Click The Button Below To Reset It
+                    <br>
+                    <a href= '.$resetLink.' target="_blank" style="text-decoration: none">
+                    <button style=" background-color: #1b6997; border: 1px solid #1b6997;height: 30px; color: white;
+                                        font-weight: bolder; cursor: pointer; display:block; margin: auto ">
+                        Reset Your Password
+                    </button>
+                    </a>
+                    <br>
+                        If You Did not Request A Password Reset, Please Ignore This Email Or Reply To Let Us Know.
+                        This Password Reset Is Only Valid For The Next 30 Minutes.
+                    <br>
+                    <h4>
+                        With All Regards,
+                        <br>
+                        El Gouna Team
+                    </h4>
+                </p>
+            </div>
+        </div>';
+        //$fromMail = 'marwa@fumestudio.com';
+        $tomail = $this->email;
+
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+        //$headers .= 'To: <' .$tomail .'>' . "\r\n";
+        $headers .= 'From:'. 'info@elgouna.com'  . "\r\n";
+
+        if (mail($tomail,'Elgouna App - Password Reset Verification' ,$message,$headers)){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public function removeAuthResetToken(){
+        $this->auth_reset_token = '';
+        return;
+    }
 }
