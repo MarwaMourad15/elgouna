@@ -1,3 +1,4 @@
+
 ---
 version: v1.0
 rate_limited: Yes
@@ -60,11 +61,8 @@ sample_response: |
         "merchantId": "",
         "secureHash": "",
         "category": "",
-        "priceType": 0,
-        "popularity": 0,
-        "ratingType": 0,
-        "cleanliness": 0,
-        "taste": 0,
+        "priceType": "Low",
+        "popularity": "Low",
         "locationType": "",
         "placeType": "Beach Front",
         "images": [

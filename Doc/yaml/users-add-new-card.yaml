@@ -1,0 +1,60 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/like-beach
+resource_url: http://elgounaapp.com/elgouna/api/web/useres/add-new-card
+description: >
+
+parameters:
+    - name : user_id
+      description :  for registered user
+      optional : NO
+      default :
+
+    - name : card_ending
+      description :   the ending section of digits of the credit card to be added
+      optional : no
+      default : No
+	  
+	- name : card_token
+      description :   the return paymob token of the credit card to be added
+      optional : no
+      default : No
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/useres/add-new-card
+sample_request: |
+			{
+				"user_id":22,
+				"card_ending":"12345",
+				"card_token" : "qwewq78e7qw8e7q8we8wq7e"
+			}
+
+sample_response: |
+
+  {
+      "status": "Success",
+	  "card" : {
+			"id":1,
+			"paymob_token":"qwewq78e7qw8e7q8we8wq7e",
+			"card_ending_with" : "12345",
+			"adding_date" : "2016-11-02"
+	  }
+  }
+
+
+sample_error: |
+
+		{
+			"status": 'Failure',
+			"mysql_message": "Error",
+		}
+		
+		{
+			"status": 'Failure',
+			"message": "Error",
+		}

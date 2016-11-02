@@ -62,11 +62,8 @@ sample_response: |
       "instagramLink": "",
       "youtubeLink": "",
       "category": "",
-      "priceType": 0,
-      "popularity": 0,
-      "ratingType": 0,
-      "cleanliness": 0,
-      "taste": 0,
+      "priceType": "Low",
+      "popularity": "Low",
       "locationType": "",
       "placeType": "Beach Front",
       "gallery": [

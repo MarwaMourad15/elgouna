@@ -22,3 +22,9 @@ api3 :
        API to send contact
     file_name : "yaml/setting-contact.yaml"
     
+api4 :
+    name : "setting/get-trans-types"
+    description : >
+       API to get Transportation types.
+    file_name : "yaml/setting-get-trans-types.yaml"
+    

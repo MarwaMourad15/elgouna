@@ -1,0 +1,45 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/like-beach
+resource_url: http://elgounaapp.com/elgouna/api/web/useres/get-user-payments
+description: >
+
+parameters:
+    - name : userId
+      description :  the id of the user
+      optional : NO
+      default :
+	  
+sample_url: http://elgounaapp.com/elgouna/api/web/useres/get-user-payments
+sample_request: |
+	{
+		"userId":1
+	}
+
+sample_response: |
+
+  [
+	{
+		"id" : 1,
+		"amount" : 10,
+		"payment_date" : "2016-11-02",
+		"card_endig_with" : "1234",
+		"venu_name" : "venue",
+		"paymob_ref" : "qowuepqowueq",
+		"user_id" : "1",
+		"order_id" : "2"
+	}
+	
+  ]
+
+
+sample_error: |
+
+		{
+			"message": "Error"
+		}

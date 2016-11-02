@@ -66,7 +66,7 @@ sample_url: http://elgounaapp.com/elgouna/api/web/things/list-things
 sample_request: |
         {
         	"lastId":0,
-        	"keyword":"u",
+        	"keyword":"BEACHES AND POOLS",
         	"priceType":"0",
         	"visaCheck":"",
         	"popularity":"",
@@ -78,82 +78,25 @@ sample_request: |
         }
 
 sample_response: |
-
-      {
-        "status": 1,
-        "data": [
-          {
-            "recordId": 1,
-            "thingId": 87,
-            "name": "hesham beach",
-            "category": "",
-            "image": "images/beaches/198.jpg"
-          },
-          {
-            "recordId": 2,
-            "thingId": 89,
-            "name": "yyy",
-            "category": "",
-            "image": "images/beaches/201.jpg"
-          },
-          {
-            "recordId": 3,
-            "thingId": 1,
-            "name": "Ali Pasha Hotel",
-            "category": "Beaches and Pools",
-            "image": "images/beaches/10.jpg"
-          },
-          {
-            "recordId": 4,
-            "thingId": 3,
-            "name": "Buzzha Beach",
-            "category": "Kite Surfing",
-            "image": "images/beaches/25.jpg"
-          },
-          {
-            "recordId": 5,
-            "thingId": 106,
-            "name": "BEACHES AND POOLS",
-            "category": "",
-            "image": "images/beaches/220.jpg"
-          },
-          {
-            "recordId": 6,
-            "thingId": 12,
-            "name": "Club 88",
-            "category": "Golf",
-            "image": "images/beaches/72.jpg"
-          },
-          {
-            "recordId": 7,
-            "thingId": 83,
-            "name": "hello",
-            "category": "",
-            "image": "images/beaches/193.jpg"
-          },
-          {
-            "recordId": 8,
-            "thingId": 88,
-            "name": "hello",
-            "category": "",
-            "image": "images/beaches/200.jpg"
-          },
-          {
-            "recordId": 9,
-            "thingId": 90,
-            "name": "hello2",
-            "category": "",
-            "image": "images/beaches/202.png"
-          },
-          {
-            "recordId": 10,
-            "thingId": 94,
-            "name": "test",
-            "category": "",
-            "image": "images/beaches/208.jpg"
-          }
-        ]
-      }
+    {
+      "status": 1,
+      "data": [
+        {
+          "recordId": 1,
+          "thingId": 106,
+          "name": "BEACHES AND POOLS",
+          "category": "",
+          "image": "220.jpg"
+        },
+        {
+          "recordId": 2,
+          "thingId": 107,
+          "name": "Beaches and Pools",
+          "category": "",
+          "image": null
+        }
+      ]
+    }
 
 
 sample_error: |

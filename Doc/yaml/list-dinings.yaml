@@ -10,6 +10,11 @@ resource_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
 description: >
     API to get All Items for dining with filteration.
 parameters:
+    - name : lastId
+          description :  for pagenation   start with 0
+          optional : No
+          default : 0
+
     - name : keyword
       description :   search in name
       optional : Yes
@@ -50,118 +55,64 @@ parameters:
       optional : Yes
       default : No
 
-    - name : taste
-       description :  0 low   1 medium   2 high
-       optional : Yes
-       default : No
-
-    - name : cleanliness
-       description :  0 low   1 medium   2 high
-       optional : Yes
-       default : No
-
-    - name : rating
-      description :  0 low   1 medium   2 high
-      optional : Yes
-      default : No
-
 
 
 sample_url: http://elgounaapp.com/elgouna/api/web/dining/list-dinings
 sample_request: |
         {
-            "lastId":0,
-        	"categoryType":0,
-        	"keyword":"chu",
-        	"priceType":"0",
-        	"visaCheck":"",
-        	"popularity":"",
-        	"locationId":"",
-        	"categoryId":"",
-        	"placeType":"",
-        	"wifiCheck":"0",
-        	"taste":"0",
-        	"cleanliness":"0",
-        	"rating":"0"
+          "lastId":0,
+          "categoryType":0,
+          "keyword":"",
+          "priceType":"0",
+          "visaCheck":"",
+          "popularity":"",
+          "locationId":"",
+          "categoryId":"",
+          "placeType":"",
+          "wifiCheck":"0"
         }
 
 sample_response: |
-
       {
-        "status": 1,
-        "data": [
-          {
-            "recordId": 1,
-            "id": 44,
-            "name": "Bob's Hot Dogs",
-            "category": "American",
-            "image": "images/venues/93_11--Bob-Hot-dogs.jpg"
-          },
-          {
-            "recordId": 2,
-            "id": 45,
-            "name": "Breeze",
-            "category": "Italian",
-            "image": "images/venues/94_12--Breeze2.jpg"
-          },
-          {
-            "recordId": 3,
-            "id": 46,
-            "name": "Bua Khao",
-            "category": "Belgian",
-            "image": "images/venues/96_13--Bua-Khao-Thai.jpg"
-          },
-          {
-            "recordId": 4,
-            "id": 47,
-            "name": "The Cedars",
-            "category": "Arabian",
-            "image": "images/venues/98_15--The-Cedars-Lebanese-house.jpg"
-          },
-          {
-            "recordId": 5,
-            "id": 55,
-            "name": "Fish Market",
-            "category": "French",
-            "image": "images/venues/114_26--Fish-Market.JPG"
-          },
-          {
-            "recordId": 6,
-            "id": 56,
-            "name": "The Golden Chicken",
-            "category": "American",
-            "image": "images/venues/116_27--The-Golden-Chicken.JPG"
-          },
-          {
-            "recordId": 7,
-            "id": 57,
-            "name": "Grand Lodge Restaurant",
-            "category": "Italian",
-            "image": "images/venues/118_28--Graand-lodge-club.jpg"
-          },
-          {
-            "recordId": 8,
-            "id": 58,
-            "name": "Grasshopper",
-            "category": "Belgian",
-            "image": "images/venues/120_29--grasshoper3.jpg"
-          },
-          {
-            "recordId": 9,
-            "id": 59,
-            "name": "Hedra",
-            "category": "Arabian",
-            "image": "images/venues/122_30--Hedra1.jpg"
-          },
-          {
-            "recordId": 10,
-            "id": 67,
-            "name": "Le Deauville",
-            "category": "French",
-            "image": "images/venues/136_39--Le-deauville1.jpg"
-          }
-        ]
-      }
+      "status": 1,
+      "data": [
+        {
+          "recordId": 1,
+          "id": 37,
+          "name": "Captain's Steakhouse",
+          "category": "",
+          "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+        },
+        {
+          "recordId": 2,
+          "id": 38,
+          "name": "Chez Pascal",
+          "category": "",
+          "image": "images/venues/81_3--chez-pascal-(2).jpg"
+        },
+        {
+          "recordId": 3,
+          "id": 39,
+          "name": "Seventh Star Restaurant",
+          "category": "",
+          "image": "images/venues/83_5--Seventh-Star.JPG"
+        },
+        {
+          "recordId": 4,
+          "id": 40,
+          "name": "Art Village Cafe",
+          "category": "",
+          "image": "images/venues/85_7--Art-village2.JPG"
+        },
+        {
+          "recordId": 5,
+          "id": 41,
+          "name": "Athena Greek Taverna",
+          "category": "",
+          "image": "images/venues/87_8--Athena-Greek-Taverna.JPG"
+        }
+      ]
+    }
 
 sample_error: |
 

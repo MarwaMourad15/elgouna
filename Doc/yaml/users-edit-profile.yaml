@@ -1,0 +1,107 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/like-beach
+resource_url: http://elgounaapp.com/elgouna/api/web/useres/edit-profile
+description: >
+
+parameters:
+    - name : userId
+      description :  the id of the user
+      optional : NO
+      default :
+	- name : userAuth
+      description :  the password of the user of the user
+      optional : NO
+      default :
+	- name : name
+      description :  the name of the user
+      optional : NO
+      default :
+	- name : phoneNumber
+      description :  the phone of the user
+      optional : NO
+      default :
+	- name : gender
+      description :  the gender of the user
+      optional : NO
+      default :
+	- name : birthday
+      description :  the birth date of the user
+      optional : NO
+      default :
+	- name : address
+      description :  the address of the user
+      optional : NO
+      default :
+	- name : zipCode
+      description :  the zip code of the user
+      optional : NO
+      default :
+	- name : notificationEnabled
+      description :  the flag of the notification
+      optional : NO
+      default :
+	- name : mapsEnabled
+      description :  the flag of the map
+      optional : NO
+      default :
+	  
+	  
+sample_url: http://elgounaapp.com/elgouna/api/web/useres/edit-profile
+sample_request: |
+	{
+		"userId":1,
+		"userAuth":"qwuyeiy21873y21o3u902183921u3",
+		"name" : "Ahmed Mohamed",
+		"phoneNumber" : "3232323232",
+		"gender" : "0",
+		"birthDate" : "1999-12-01",
+		"address" : "123 street",
+		"email" : "email@org.com",
+		"zipCode" : "1212121",
+		"notificationsEnabled" : "0",
+		"mapsEnabled" : "0",
+	}
+
+sample_response: |
+
+  {
+      "status": "1",
+	  "user": {
+		"id":1,
+		"userAuth":"qwuyeiy21873y21o3u902183921u3",
+		"name" : "Ahmed Mohamed",
+		"imageURL" : "https:images.com/oqwiueiowq",
+		"phoneNumber" : "3232323232",
+		"gender" : "0",
+		"birthDate" : "1999-12-01",
+		"address" : "123 street",
+		"email" : "email@org.com",
+		"zipCode" : "1212121",
+		"notificationsEnabled" : "0",
+		"mapsEnabled" : "0",
+		"elgounaPhone" : "",
+		"elgounaSMS" : "",
+		"elgounaEmail" : "",
+		"fbId" : "",
+		"ehgzly_user_token" : null,
+		"ehgzly_user_id" : null,
+		"auth_reset_token" : "",
+		"cards" : []
+	  
+	  }
+  }
+
+
+sample_error: |
+
+		{
+			"status": "0",
+			"msg":"0",
+			"user":""
+  }

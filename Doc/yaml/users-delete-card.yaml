@@ -1,0 +1,43 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/like-beach
+resource_url: http://elgounaapp.com/elgouna/api/web/useres/delete-card
+description: >
+
+parameters:
+    - name : card_id
+      description :  the id of the card to be deleted
+      optional : NO
+      default :
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/useres/delete-card
+sample_request: |
+        {
+        	"card_id":22
+        }
+
+sample_response: |
+
+  {
+      "status": "Success",
+	  "message":"Card **** **** **** 1235456 has been deleted."
+  }
+
+
+sample_error: |
+
+		{
+			"status": 'Failure',
+			"mysql_message": "Error",
+		}
+		
+		{
+			"status": 'Failure',
+			"message": "Error",
+		}

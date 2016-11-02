@@ -1,0 +1,53 @@
+# file_name : relative path is w.r.t. pub directory
+# absolute file path : make sure web server can read the file
+#
+---
+
+api1 :
+    name : "users/add-new-card"
+    description : >
+        API to add new credit card.
+    file_name : "yaml/users-add-new-card.yaml"
+
+api2 :
+    name : "users/delete-card"
+    description : >
+        API to delete a credit card.
+    file_name : "yaml/users-delete-card.yaml"
+
+api3 :
+    name : "users/facebook-login"
+    description : >
+        API to login with facebook account.
+    file_name : "yaml/users-facebook-login.yaml"
+
+api4 :
+    name : "users/facebook-signup"
+    description : >
+      API to sign up with facebook account
+    file_name : "yaml/users-facebook-signup.yaml"
+api5 :
+    name : "users/forget-password"
+    description : >
+        API to send a forget password email
+    file_name : "yaml/users-forget-password.yaml"
+api6 :
+    name : "users/edit-profile"
+    description : >
+        API to edit a user profile
+    file_name : "yaml/users-edit-profile.yaml"
+api7 :
+    name : "users/get-user-payments"
+    description : >
+        API to get the paymets made by a user
+    file_name : "yaml/users-get-user-payments.yaml"
+api8 :
+    name : "users/login"
+    description : >
+        API to login a user with email
+    file_name : "yaml/users-login.yaml"
+api9 :
+    name : "users/signup"
+    description : >
+        API to register a new user with email
+    file_name : "yaml/users-signup.yaml"

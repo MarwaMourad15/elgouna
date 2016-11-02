@@ -1,0 +1,62 @@
+
+---
+version: v1.0
+rate_limited: Yes
+response_format: JSON
+authentication: None
+method: Post
+resource: beaches/like-beach
+resource_url: http://elgounaapp.com/elgouna/api/web/useres/facebook-login
+description: >
+
+parameters:
+    - name : fbId
+      description :  the facebook id of the user
+      optional : NO
+      default :
+
+
+sample_url: http://elgounaapp.com/elgouna/api/web/useres/facebook-login
+sample_request: |
+        {
+        	"fbId":"qiuwyeioquwyeouiywqoueywquo"
+        }
+
+sample_response: |
+
+  {
+      "status": "1",
+	  "userExists":"1",
+	  "user": {
+		"id":1,
+		"userAuth":"qwuyeiy21873y21o3u902183921u3",
+		"name" : "Ahmed Mohamed",
+		"imageURL" : "https:images.com/oqwiueiowq",
+		"phoneNumber" : "3232323232",
+		"gender" : "0",
+		"birthDate" : "1999-12-01",
+		"address" : "123 street",
+		"email" : "email@org.com",
+		"zipCode" : "1212121",
+		"notificationsEnabled" : "0",
+		"mapsEnabled" : "0",
+		"elgounaPhone" : "",
+		"elgounaSMS" : "",
+		"elgounaEmail" : "",
+		"fbId" : "",
+		"ehgzly_user_token" : null,
+		"ehgzly_user_id" : null,
+		"auth_reset_token" : "",
+		"cards" : []
+	  
+	  }
+  }
+
+
+sample_error: |
+
+		{
+			"status": "0",
+			"userExists":"0",
+			"user":""
+  }

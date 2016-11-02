@@ -18,6 +18,7 @@ if(!file_exists("settings.ini")) {
     $things_yaml = "things.yaml";
 	$review_yaml = "user-review.yaml";
 	$setting_yaml = "user-settings.yaml";
+	$user_yaml = "users.yaml";
 
    /* if(!file_exists($index_yaml)) {
         printf("index YAML file {%s} Not Found",$index_yaml);
@@ -37,6 +38,7 @@ if(!file_exists("settings.ini")) {
     $things = Spyc::YAMLLoad($things_yaml);
 	$review = Spyc::YAMLLoad($review_yaml);
 	$setting = Spyc::YAMLLoad($setting_yaml);
+	$users = Spyc::YAMLLoad($user_yaml);
 ?>
 <html>
 <meta charset="UTF-8">
@@ -277,6 +279,32 @@ if(!file_exists("settings.ini")) {
                 </table>
                 <br>
                 </hr>
+				<h3>Users</h3>
+			<table class="table table-hover">
+					<thead>
+					<tr>
+						<th>Resource</th>
+						<th>Description</th>
+					</tr>
+
+					</thead>
+
+					<tbody>
+					<?php foreach($users as $api ) {
+						$token = "#" ;
+						if(array_key_exists("file_name",$api)){ $token = base64_encode($api["file_name"]); }
+						$api_url = $detail_url.$token ; ?>
+						<tr>
+							<td><a href="<?php echo $api_url?>"><b><?php echo $api["name"] ?> </b></a></td>
+							<td><?php echo $api["description"] ?> </td>
+						</tr>
+
+					<?php } ?>
+					</tbody>
+
+				</table>
+<br>
+</hr>
 				<!--<h3>Review</h3>
 				<table class="table table-hover">
 					<thead>
