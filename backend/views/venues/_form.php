@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use backend\models\VenueCategory;
 use yii\helpers\ArrayHelper;
+use backend\models\Location;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Venues */
@@ -73,7 +74,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'popularity')->textInput()?>
 
-    <?= $form->field($model, 'location_id')->textInput()?>
+    <?= $form->field($model, 'location_id')->dropDownList(Location::getLocations())?>
 
     <?= $form->field($model, 'place_type')->textInput()?>
 
