@@ -144,12 +144,14 @@ class HotelController extends ApiController {
 		$params = $this->parseRequest ();
 		if (isset ( $params ['userId'] ) && isset ( $params ['hotelId'] ) && isset ( $params ['rating'] ) && isset ( $params ['review'] )) {
 			$currentDate = date ( "Y-m-d H:i:s" );
+			$avgRate = 0;
 			$review = new HotelReview ();
 			$review->user_id = $params ['userId'];
 			$review->hotel_id = $params ['hotelId'];
 			$review->rating = intval ( $params ['rating'] );
 			$review->date = $currentDate;
 			$review->review = $params ['review'];
+			$review->approved = 0;
 			$review->save ();
 			$hotelReview = HotelReview::find ()->where ( [ 
 					'hotel_id' => $params ['hotelId'],
@@ -157,13 +159,15 @@ class HotelController extends ApiController {
 			] );
 			$ratingSum = $hotelReview->sum ( 'rating' );
 			$ratingCount = $hotelReview->count ();
-			$avgRate = $ratingSum / $ratingCount;
+			if ($ratingCount > 0) {
+				$avgRate = $ratingSum / $ratingCount;
+			}
 			$avgRate = number_format ( $avgRate, 1 );
 			$hotel = Hotels::find ()->where ( [ 
-					'id' => $params ['hotelId'] 
+					'id' => intval ( $params ['hotelId'] ) 
 			] )->one ();
 			$hotel->reviewScore = $avgRate;
-			if ($hotel->update ())
+			if ($hotel->update () !== false)
 				$all ['status'] = 1;
 			else
 				$all ['status'] = 0;
@@ -192,10 +196,10 @@ class HotelController extends ApiController {
 				] );
 			}
 			if (isset ( $params ['servicesIds'] ) && $params ['servicesIds'] != "") {
-//				$hotelServices = ServicesHotel::find ()->where ( [ 'in',
-//						'service_id', $params ['servicesIds']
-//				] )->groupBy ( 'hotel_id' )->all ();
-				$hotelServices = ServicesHotel::findBySql('select * from `services_hotel` where `service_id` in ('.$params['servicesIds'].') group by `hotel_id`')->all();
+				// $hotelServices = ServicesHotel::find ()->where ( [ 'in',
+				// 'service_id', $params ['servicesIds']
+				// ] )->groupBy ( 'hotel_id' )->all ();
+				$hotelServices = ServicesHotel::findBySql ( 'select * from `services_hotel` where `service_id` in (' . $params ['servicesIds'] . ') group by `hotel_id`' )->all ();
 				$ids = [ ];
 				foreach ( $hotelServices as $hotelService ) {
 					$ids [] = $hotelService->hotel_id;
@@ -211,7 +215,7 @@ class HotelController extends ApiController {
 			$count = $params ['lastId'];
 			foreach ( $hotels as $hotel ) {
 				$isLiked = 0;
-				$rateRange = RateRange::find ()->where ( [
+				$rateRange = RateRange::find ()->where ( [ 
 						'<=',
 						'start',
 						$hotel->reviewScore 
