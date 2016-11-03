@@ -4,7 +4,7 @@ version: v1.0
 rate_limited: Yes
 response_format: JSON
 authentication: None
-method: POST
+method: POST,GET
 resource: ehgizly/event-list
 resource_url: http://elgounaapp.com/elgouna/api/web/ehgizly/event-list
 description: >

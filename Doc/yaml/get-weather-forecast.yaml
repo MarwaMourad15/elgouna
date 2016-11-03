@@ -4,7 +4,7 @@ version: v1.0
 rate_limited: Yes
 response_format: JSON
 authentication: None
-method: GET
+method: GET,POST
 resource: weather/get-weather-forecast
 resource_url: http://elgounaapp.com/elgouna/api/web/weather/get-weather-forecast
 description: >

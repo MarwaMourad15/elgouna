@@ -33,7 +33,7 @@ class SettingController extends ApiController {
 										'post' 
 								],
 								'get-trans-types' => [ 
-										'get' 
+										'get','post'
 								] 
 						] 
 				] 
