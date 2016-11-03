@@ -72,6 +72,6 @@ class VenueCategory extends \yii\db\ActiveRecord {
 		];
 	}
 	public static function getCategories() {
-		return ArrayHelper::map ( self::find ()->all (), 'id', 'name' );
+		return ArrayHelper::map ( self::find ()->all (), 'id', 'title' );
 	}
 }
