@@ -12,8 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h5><?= Html::encode($this->title) ?></h5></div>
+        <div class="panel-body">
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
@@ -37,4 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+</div>
+</div>
 </div>
