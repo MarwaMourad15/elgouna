@@ -12,8 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="venues-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+ <div class="panel panel-primary">
+        <div class="panel-heading"><h5><?= Html::encode($this->title) ?></h5></div>
+        <div class="panel-body">
 
     <p>
         <?= Html::a(Yii::t('app', 'Create Venues'), ['create'], ['class' => 'btn btn-success']) ?>
@@ -65,4 +66,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+</div>
+</div>
 </div>
