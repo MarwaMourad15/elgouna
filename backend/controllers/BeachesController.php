@@ -80,6 +80,39 @@ class BeachesController extends Controller
         $model = new Beaches();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+
+            /// upload images
+            $image = UploadedFile::getInstancesByName('result');
+            //print_r($image);
+            $msg = 'uploaded ';
+            foreach ($image as $img) {
+                $msg .= $img->name;
+                $labresult = new BeachesImg();
+                $labresult->visit_id = $id;
+                $msg .= $img->name;
+                $uploadedName = explode(".", $img->name);
+                $ext = end($uploadedName);
+                $rand = uniqid();
+                $imageName = time() . $rand . '.' . $ext;
+                $imageTmpName = $imageName;
+                $path = '/uploads/visit_results/';
+                if (!empty($imageName)) {
+                    $labresult->result_url = $path . $imageName;
+                }
+                if ($labresult->save()) {
+                    $finalPath = dirname(dirname(__DIR__)) . $path . $imageName;
+                    if ($img->saveAs($finalPath)) {
+                        Yii::$app->getSession()->setFlash('success', 'Item has been Updated successfully');
+                        //return json_encode((object)NULL);
+                    } else {
+                        Yii::$app->getSession()->setFlash('success', 'An Error Occurred while uploading image. Please try again!');
+                        //return json_encode(['error' => 'An Error Occurred. Please try again!']);
+                    }
+                }
+            }
+
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -194,5 +227,46 @@ class BeachesController extends Controller
 
         }
     }*/
+
+
+
+    public function actionVisitUpload($id)
+    {
+
+        $image = UploadedFile::getInstancesByName('result');
+        //print_r($image);
+        $msg = 'uploaded ';
+        foreach ($image as $img) {
+            $msg .= $img->name;
+            $labresult = new VisitResults();
+            $labresult->visit_id = $id;
+            $msg .= $img->name;
+            $uploadedName = explode(".", $img->name);
+            $ext = end($uploadedName);
+            $rand = uniqid();
+            $imageName = time() . $rand . '.' . $ext;
+            $imageTmpName = $imageName;
+            $path = '/uploads/visit_results/';
+            if (!empty($imageName)) {
+                $labresult->result_url = $path . $imageName;
+            }
+            if ($labresult->save()) {
+                $finalPath = dirname(dirname(__DIR__)) . $path . $imageName;
+                if ($img->saveAs($finalPath)) {
+                    Yii::$app->getSession()->setFlash('success', 'Item has been Updated successfully');
+                    //return json_encode((object)NULL);
+                } else {
+                    Yii::$app->getSession()->setFlash('success', 'An Error Occurred while uploading image. Please try again!');
+                    //return json_encode(['error' => 'An Error Occurred. Please try again!']);
+                }
+            }
+        }
+        $visit = RequestVisit::findOne($id);
+        $reuquestLabsSearch = new RequestLabSearch();
+        $reuquestLabsSearch->request_id = $id;
+        $visitLabs = $reuquestLabsSearch->search(Yii::$app->request->queryParams);
+        Notify::instance()->sendPatientNewResult($visit);
+        return $this->render('visit-detail', ['visit' => $visit, 'labs' => $visitLabs]);
+    }
 
 }
