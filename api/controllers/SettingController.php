@@ -21,7 +21,7 @@ class SettingController extends ApiController {
 						'class' => VerbFilter::className (),
 						'actions' => [ 
 								'settings' => [ 
-										'get' 
+										'get','post'
 								],
 								'locations' => [ 
 										'get' 
