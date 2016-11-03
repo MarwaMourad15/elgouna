@@ -20,19 +20,22 @@ class EhgizlyController extends ApiController {
 						'class' => VerbFilter::className (),
 						'actions' => [ 
 								'event-list' => [ 
-										'post' 
+										'get','post'
 								] 
 						] 
 				] 
 		];
 	}
 	public function actionEventList() {
-		$params = $this->parseRequest ();
-		if (isset ( $params ['PageNumber'] )) {
+		//$params = $this->parseRequest ();
+        $pageNumber=0;
+		if (isset ( $_REQUEST ['PageNumber'] )) {
+            $pageNumber = $_REQUEST ['PageNumber'];
+        }
 			$all = [ ];
 			$params = [ 
 					"PageSize" => 5,
-					"PageNumber" => $params ['PageNumber'],
+					"PageNumber" => $pageNumber,
 					"OrderBy" => "EventStartDate" 
 			];
 			$header = [ 
@@ -79,8 +82,8 @@ class EhgizlyController extends ApiController {
 				$all [$i] = $event;
 			}
 			$this->sendSuccessResponse2 ( 1, 200, $all );
-		} else
-			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );
+		 /*else
+			$this->sendFailedResponse ( 0, 400, 'Invalid_Parameters' );*/
 	}
 	private function updateAppToken() {
 		$appTokenKey = "E7gzlyAppToken";

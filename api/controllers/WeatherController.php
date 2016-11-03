@@ -19,7 +19,7 @@ class WeatherController extends ApiController {
 						'class' => VerbFilter::className (),
 						'actions' => [ 
 								'get-weather-forecast' => [ 
-										'get' 
+										'post'
 								] 
 						] 
 				] 
