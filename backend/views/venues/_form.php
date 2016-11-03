@@ -2,6 +2,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use backend\models\VenueCategory;
+use yii\helpers\ArrayHelper;
+use backend\models\Location;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Venues */
@@ -66,13 +68,13 @@ use backend\models\VenueCategory;
 
     <?= $form->field($model, 'secure_hash')->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map( VenueCategory::find()->all(), 'id', 'name' ),[ 'prompt' => '' ])?>
+    <?= $form->field($model, 'category_id')->dropDownList( VenueCategory::getCategories(),[ 'prompt' => '' ])?>
 
     <?= $form->field($model, 'price_type')->textInput()?>
 
     <?= $form->field($model, 'popularity')->textInput()?>
 
-    <?= $form->field($model, 'location_id')->textInput()?>
+    <?= $form->field($model, 'location_id')->dropDownList(Location::getLocations())?>
 
     <?= $form->field($model, 'place_type')->textInput()?>
 
