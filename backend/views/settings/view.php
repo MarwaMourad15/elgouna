@@ -6,23 +6,19 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Settings */
 
-$this->title = $model->id;
+$this->title = 'App. Settings';
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Settings'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="settings-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h5><?= Html::encode($this->title) ?></h5></div>
+        <div class="panel-body">
 
-    <p>
+        <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
+
     </p>
 
     <?= DetailView::widget([
@@ -39,7 +35,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'elgounaPhone:ntext',
             'elgounaSMS:ntext',
             'elgounaemail:ntext',
-            'about',
+
+            [
+                'attribute' => 'about',
+                'format'=>'raw',
+                'value'=>$model->about,
+            ],
+
             'paymobAPIKey',
             'paymobSecretKey',
             'paymobMerchantId',
@@ -47,4 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+</div>
+</div>
 </div>

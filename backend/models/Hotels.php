@@ -54,7 +54,7 @@ class Hotels extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'location', 'longitude', 'latitude', 'reviewScore', 'ratingStar', 'offerExists', 'descrip', 'offerTitle', 'offerDescription', 'isPoolAvailable', 'isGymAvailable', 'isWifiAvailable', 'isVisaPaymentAvailable', 'isDiningInAvailable', 'accomadtionType', 'elgounaVoice', 'email', 'phoneNumber', 'info', 'facebookLink', 'twitterLink', 'instagramLink', 'youtubeLink', 'virtualTourLink', 'pid', 'ord', 'hidden'], 'required'],
+            ///[['name', 'location', 'longitude', 'latitude', 'reviewScore', 'ratingStar', 'offerExists', 'descrip', 'offerTitle', 'offerDescription', 'isPoolAvailable', 'isGymAvailable', 'isWifiAvailable', 'isVisaPaymentAvailable', 'isDiningInAvailable', 'accomadtionType', 'elgounaVoice', 'email', 'phoneNumber', 'info', 'facebookLink', 'twitterLink', 'instagramLink', 'youtubeLink', 'virtualTourLink', 'pid', 'ord', 'hidden'], 'required'],
             [['name', 'location', 'longitude', 'latitude', 'descrip', 'offerTitle', 'offerDescription', 'accomadtionType', 'elgounaVoice', 'email', 'phoneNumber', 'info', 'facebookLink', 'twitterLink', 'instagramLink', 'youtubeLink'], 'string'],
             [['reviewScore'], 'number'],
             [['ratingStar', 'offerExists', 'isPoolAvailable', 'isGymAvailable', 'isWifiAvailable', 'isVisaPaymentAvailable', 'isDiningInAvailable', 'pid', 'ord', 'hidden'], 'integer'],
