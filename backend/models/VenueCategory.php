@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "venue_category".
@@ -14,41 +15,63 @@ use Yii;
  * @property integer $ordering
  * @property integer $type
  */
-class VenueCategory extends \yii\db\ActiveRecord
-{
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return 'venue_category';
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['description'], 'string'],
-            [['ordering', 'type'], 'integer'],
-            [['title'], 'string', 'max' => 100],
-            [['image'], 'string', 'max' => 255],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'description' => Yii::t('app', 'Description'),
-            'image' => Yii::t('app', 'Image'),
-            'ordering' => Yii::t('app', 'Ordering'),
-            'type' => Yii::t('app', 'Type'),
-        ];
-    }
+class VenueCategory extends \yii\db\ActiveRecord {
+	/**
+	 * @inheritdoc
+	 */
+	public static function tableName() {
+		return 'venue_category';
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function rules() {
+		return [ 
+				[ 
+						[ 
+								'description' 
+						],
+						'string' 
+				],
+				[ 
+						[ 
+								'ordering',
+								'type' 
+						],
+						'integer' 
+				],
+				[ 
+						[ 
+								'title' 
+						],
+						'string',
+						'max' => 100 
+				],
+				[ 
+						[ 
+								'image' 
+						],
+						'string',
+						'max' => 255 
+				] 
+		];
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function attributeLabels() {
+		return [ 
+				'id' => Yii::t ( 'app', 'ID' ),
+				'title' => Yii::t ( 'app', 'Title' ),
+				'description' => Yii::t ( 'app', 'Description' ),
+				'image' => Yii::t ( 'app', 'Image' ),
+				'ordering' => Yii::t ( 'app', 'Ordering' ),
+				'type' => Yii::t ( 'app', 'Type' ) 
+		];
+	}
+	public static function getCategories() {
+		return ArrayHelper::map ( self::find ()->all (), 'id', 'name' );
+	}
 }

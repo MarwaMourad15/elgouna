@@ -67,7 +67,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'secure_hash')->textInput(['maxlength' => true])?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map( VenueCategory::find()->all(), 'id', 'name' ),[ 'prompt' => '' ])?>
+    <?= $form->field($model, 'category_id')->dropDownList( VenueCategory::getCategories(),[ 'prompt' => '' ])?>
 
     <?= $form->field($model, 'price_type')->textInput()?>
 

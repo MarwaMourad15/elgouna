@@ -14,9 +14,9 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'hotel_id')->dropDownList(ArrayHelper::map( Hotels::find()->all(), 'id', 'name' ),[ 'prompt' => '' ])?>
+    <?= $form->field($model, 'hotel_id')->dropDownList(Hotels::getHotels(),[ 'prompt' => '' ])?>
 
-    <?= $form->field($model, 'user_id')->dropDownList(ArrayHelper::map( Users::find()->all(), 'id', 'name' ),[ 'prompt' => '' ])?>
+    <?= $form->field($model, 'user_id')->dropDownList(Users::getUsers(),[ 'prompt' => '' ])?>
 
     <?= $form->field($model, 'review')->textarea(['rows' => 6])?>
 
