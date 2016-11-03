@@ -51,3 +51,8 @@ api9 :
     description : >
         API to register a new user with email
     file_name : "yaml/users-signup.yaml"
+api9 :
+    name : "users/upload-images"
+    description : >
+        API to register a new user with email
+    file_name : "yaml/users-upload-images.yaml"

@@ -6,7 +6,7 @@ response_format: JSON
 authentication: None
 method: Post
 resource: beaches/like-beach
-resource_url: http://elgounaapp.com/elgouna/api/web/useres/signup
+resource_url: http://elgounaapp.com/elgouna/api/web/users/signup
 description: >
 
 parameters:
