@@ -13,19 +13,25 @@ use yii\helpers\ArrayHelper;
 
 <div class="beaches-form">
 
-    <?php $form = ActiveForm::begin(['layout'=>'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
-            'horizontalCssClasses' => [
-                'label' => 'col-sm-3',
-                'offset' => 'col-sm-offset-4',
-                'wrapper' => 'col-sm-8',
-                'error' => '',
-                'hint' => '',
-            ],
-        ],
-        'options'=>['enctype'=>'multipart/form-data']
-    ]); ?>
+    <?php
+				
+				$form = ActiveForm::begin ( [ 
+						'layout' => 'horizontal',
+						'fieldConfig' => [ 
+								'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
+								'horizontalCssClasses' => [ 
+										'label' => 'col-sm-3',
+										'offset' => 'col-sm-offset-4',
+										'wrapper' => 'col-sm-8',
+										'error' => '',
+										'hint' => '' 
+								] 
+						],
+						'options' => [ 
+								'enctype' => 'multipart/form-data' 
+						] 
+				] );
+				?>
 
     <?= $form->field($model, 'name')->textInput()?>
 
@@ -93,22 +99,18 @@ use yii\helpers\ArrayHelper;
 
 
     <div class="form-group">
-        <div class="control-label col-sm-3">Upload Images</div>
-        <div class="col-sm-8">
-    <?= FileInput::widget(['name'=>'result[]',
-        'options' => ['multiple' => true , 'accept' => '/*'],
-        'pluginOptions' => ['previewFileType' => 'any', 'showUpload'=>false ,
-        ],
-    ])?>
+		<div class="control-label col-sm-3">Upload Images</div>
+		<div class="col-sm-8">
+    <?=FileInput::widget ( [ 'name' => 'images[]','options' => [ 'multiple' => true,'accept' => '/*' ],'pluginOptions' => [ 'previewFileType' => 'any','showUpload' => false ] ] )?>
         </div>
-    </div>
+	</div>
 
-    <div class="form-group">
-        <div class="control-label col-sm-3"></div>
-        <div class="col-sm-8">
-            <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+	<div class="form-group">
+		<div class="control-label col-sm-3"></div>
+		<div class="col-sm-8">
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'])?>
         </div>
-    </div>
+	</div>
 
     <?php ActiveForm::end(); ?>
 

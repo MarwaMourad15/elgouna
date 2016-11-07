@@ -4,6 +4,7 @@ namespace backend\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "hotels".
@@ -43,6 +44,7 @@ class Hotels extends \yii\db\ActiveRecord {
 	/**
 	 * @inheritdoc
 	 */
+	public $images;
 	public static function tableName() {
 		return 'hotels';
 	}
@@ -108,6 +110,17 @@ class Hotels extends \yii\db\ActiveRecord {
 						],
 						'string',
 						'max' => 300 
+				],
+				[ 
+						[ 
+								'images' 
+						],
+						'file',
+						'extensions' => [ 
+								'png',
+								'jpg',
+								'gif' 
+						] ,'maxFiles'=>0
 				] 
 		];
 	}
@@ -146,7 +159,8 @@ class Hotels extends \yii\db\ActiveRecord {
 				'virtualTourLink' => Yii::t ( 'app', 'Virtual Tour Link' ),
 				'pid' => Yii::t ( 'app', 'Pid' ),
 				'ord' => Yii::t ( 'app', 'Ord' ),
-				'hidden' => Yii::t ( 'app', 'Hidden' ) 
+				'hidden' => Yii::t ( 'app', 'Hidden' ),
+				'images' => Yii::t ( 'app', 'Images' ) 
 		];
 	}
 	public static function getHotels() {

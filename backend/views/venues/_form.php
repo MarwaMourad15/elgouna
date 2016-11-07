@@ -85,8 +85,15 @@ use backend\models\Location;
     <?= $form->field($model, 'cleanliness')->textInput()?>
 
     <?= $form->field($model, 'rating')->textInput()?>
-
+    
     <div class="form-group">
+		<div class="control-label col-sm-3">Upload Images</div>
+		<div class="col-sm-8">
+    <?=FileInput::widget ( [ 'name' => 'images[]','options' => [ 'multiple' => true,'accept' => '/*' ],'pluginOptions' => [ 'previewFileType' => 'any','showUpload' => false ] ] )?>
+        </div>
+	</div>
+
+	<div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'])?>
     </div>
 
